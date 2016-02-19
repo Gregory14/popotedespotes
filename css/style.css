@@ -1,0 +1,256 @@
+/*_______STYLE GENERAL_______*/
+
+body {
+    padding:40px;
+    background-color:white;
+}
+li {
+    list-style:none;
+}
+.btn {
+    background-color:#F37168;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:white;
+    border-radius:0;
+    padding: 12px 17px;
+}
+section {
+    text-align:center;
+    margin-top:80px;
+}
+section h3 {
+    margin-bottom: 45px;
+    text-transform: uppercase;
+}
+
+.square {
+    width:320px;
+    height:320px;
+    border:10px solid white;
+    margin:0 auto;
+    position:relative;
+    overflow:hidden;
+    margin-bottom: 60px;
+}
+
+.rectangle {
+    width:710px;
+    height:320px;
+    border:10px solid white;
+    margin:0 auto;
+    position:relative;
+    overflow:hidden;
+}
+
+.rotatedTitle {
+    text-align:left;
+    -webkit-transform: rotate(-90deg) translateX(-90px);
+    -moz-transform: rotate(-90deg) translateX(-90px);
+    -ms-transform: rotate(-90deg) translateX(-90px);
+    -o-transform: rotate(-90deg) translateX(-90px);
+    transform: rotate(-90deg) translateX(-90px);
+}
+
+article img {
+    min-height: 100%;
+    min-width: 100%;
+}
+
+article .details {
+    position: absolute;
+    height: 100%;
+    padding-top: 85%;
+    top: 0;
+    width: 100%;
+    color: white;
+    -webkit-transition: all ease-in 0.2s;
+    -moz-transition: all ease-in 0.2s ;
+    -ms-transition: all ease-in 0.2s ;
+    -o-transition: all ease-in 0.2s ;
+    transition: all ease-in 0.2s ;
+}
+
+article:hover .details{
+    padding-top:5%;
+    background:rgba(0,0,0,0.5);
+}
+/*_______HEADER_______*/
+
+header {
+    position: absolute;
+    width: calc(100% - 80px);
+    top: 40px;
+    left: 40px;
+    background: transparent;
+    z-index: 10;
+    padding: 20px;
+}
+header.fixedHeader {
+    position:fixed;
+    top:0;
+}
+header.fixedHeader.whiteHeader {
+    background-color:white;
+    height:40px;
+}
+header.fixedHeader.whiteHeader svg {
+    fill:#F37168;
+    -webkit-transform: translateY(-18px);
+    -moz-transform: translateY(-18px);
+    -ms-transform: translateY(-18px);
+    -o-transform: translateY(-18px);
+    transform: translateY(-18px);
+    transition: transform ease-in 0.1s;
+    transition: fill ease-in 0.2s;
+}
+
+header.fixedHeader.whiteHeader .menu-icon {
+    transform:translateY(-14px);
+}
+header.fixedHeader.whiteHeader .hideable {
+    display:none;
+    transition: all ease-in 0.2s;
+}
+
+header.fixedHeader.whiteHeader .menu-icon span,
+header.fixedHeader.whiteHeader .menu-icon::after,
+header.fixedHeader.whiteHeader .menu-icon::before {
+    background-color:#F37168;
+}
+header svg {
+    fill:white;
+    width:100px;
+}
+header nav {
+    float:right;
+    display: none;
+}
+header .menu-icon {
+    cursor: pointer;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+}
+header .menu-icon span{
+    width: 35px;
+    height: 2px;
+    background: white;
+    display: block;
+    margin-top: 6px;
+}
+header .menu-icon::before, header .menu-icon::after {
+    content: "";
+    width: 35px;
+    height: 2px;
+    background: white;
+    display: block;
+    transition: all ease-in 0.2s;
+}
+.menu-icon::before {
+    margin-top: -6px;
+}
+.menu-icon::after {
+    margin-top: 6px;
+}
+
+/*_______HERO IMAGE_______*/
+
+figure {
+    position: relative;
+    height: 785px;
+    overflow: hidden;
+}
+figure img {
+    width: auto;
+    min-width: 100%;
+    height: auto;
+    min-height: 100%;
+}
+figure figcaption {
+    position: absolute;
+    color: white;
+    left: 50%;
+    margin-left: -300px;
+    top: 50%;
+    margin-top: -60px;
+    text-align: center;
+}
+figure figcaption .btn {
+    margin-top:210px;
+}
+
+/*_______SECTION RECETTE_______*/
+
+
+
+/*_______SECTION INGREDIENTS_______*/
+
+#ingredients {
+    text-align:center;
+}
+#ingredients h4 {
+    text-transform:uppercase;
+    margin-bottom:30px;
+}
+#ingredients h4::before {
+    content:url(/img/carotte.png);
+    display:block;
+    margin-bottom:35px;
+}
+#ingredients .row:first-child > div:nth-child(3) h4:before {
+    content:url(/img/ToqueChef.png);
+}
+#ingredients .row:first-child > div:nth-child(4) h4:before {
+    content:url(/img/marmitte.png);
+}
+#ingredients .row:nth-child(2) {
+    margin-top:60px;
+}
+
+/*_______SECTION PARTENAIRES_______*/
+
+#partners {
+    background: url(/img/pattern.jpg) repeat-x;
+    background-size: 25%;
+    padding-top: 140px;
+}
+
+/*_______SECTION CHEFS_______*/
+
+#chefs {
+    background: url(/img/chefBkg.jpg) no-repeat;
+    background-position: 0 230px;
+    background-size: cover;
+    padding-bottom: 350px;
+}
+
+/*_______SECTION D'ASSO_______*/
+
+#associations {
+    margin-top: -120px;
+}
+#associations article {
+    background-color: white;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+#associations article img {
+    min-width:auto;
+    min-height:auto;
+}
+/*_______FOOTER_______*/
+
+footer {
+    background-image:linear-gradient(rgba(248,245,192,0.7), rgba(248,245,192,0.7)), url(/img/pattern.jpg);
+    background-size: 25%;
+    text-align: center;
+    padding: 50px 0;
+    margin-top:100px;
+}
+
+footer svg {
+    width:200px;
+    fill:white;
+}
