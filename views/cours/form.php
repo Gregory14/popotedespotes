@@ -46,19 +46,27 @@ print_r($test);*/
 
         <div class="col-xs-6">
             <label class="col-xs-3">
-                <input type="radio" id="offre1" name="offre" value="offre1"> Jusqu'à 10 personnes
+                <input type="radio" id="offre1" name="offre" value="offre1"
+                <?php if (isset($postdata['offre']) && $postdata['offre']=='offre1') {echo 'checked';} ?>
+                > Jusqu'à 10 personnes
             </label>
 
             <label class="col-xs-3">
-                <input type="radio" id="offre2" name="offre" value="offre2"> Entre 10 et 19 personnes
+                <input type="radio" id="offre2" name="offre" value="offre2"
+                    <?php if (isset($postdata['offre']) && $postdata['offre']=='offre2') {echo 'checked';} ?>
+                > Entre 10 et 19 personnes
             </label>
 
             <label class="col-xs-3">
-                <input type="radio" id="offre3" name="offre" value="offre3"> Entre 20 et 29 personnes
+                <input type="radio" id="offre3" name="offre" value="offre3"
+                    <?php if (isset($postdata['offre']) && $postdata['offre']=='offre3') {echo 'checked';} ?>
+                > Entre 20 et 29 personnes
             </label>
 
             <label class="col-xs-3">
-                <input type="radio" id="offre4" name="offre" value="offre4"> Plus de 30 personnes
+                <input type="radio" id="offre4" name="offre" value="offre4"
+                    <?php if (isset($postdata['offre']) && $postdata['offre']=='offre4') {echo 'checked';} ?>
+                > Plus de 30 personnes
             </label>
         </div>
     </div>
@@ -69,11 +77,15 @@ print_r($test);*/
 
         <div class="col-xs-6">
             <label class="col-xs-6">
-                <input type="radio" id="lieu1" name="lieu" value="lieu1"> Nous avons des locaux
+                <input type="radio" id="lieu1" name="lieu" value="lieu1"
+                    <?php if (isset($postdata['lieu']) && $postdata['lieu']=='lieu1') {echo 'checked';} ?>
+                > Nous avons des locaux
             </label>
 
             <label class="col-xs-6">
-                <input type="radio" id="lieu2" name="lieu" value="lieu2"> Nous avons besoins d'un lieu
+                <input type="radio" id="lieu2" name="lieu" value="lieu2"
+                    <?php if (isset($postdata['lieu']) && $postdata['lieu']=='lieu2') {echo 'checked';} ?>
+                > Nous avons besoins d'un lieu
             </label>
         </div>
     </div>
@@ -85,7 +97,7 @@ print_r($test);*/
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-6">
-                        <div id="datetimepicker1"><input type='text' name="date" class="collapse" value=""/></div>
+                        <div id="datetimepicker1"><input type='text' name="date" class="collapse" value="<?php if (isset($postdata['date']) && !empty($postdata['date'])) {echo $postdata['date'];} ?>"/></div>
                     </div>
                 </div>
             </div>
