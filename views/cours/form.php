@@ -118,7 +118,8 @@ print_r($test);*/
         $('#datetimepicker1').datetimepicker({
             inline: true,
             sideBySide: false,
-            format: 'YYYY-MM-DD'
+            format: 'YYYY-MM-DD',
+            minDate: 'moment'
         });
 
         // errors display function
