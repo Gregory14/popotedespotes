@@ -75,19 +75,16 @@ if (isset($_GET['action'])){
         if (count($errors) == 0) {
 
             /* syntaxe avec preparedStatements */
-            $sql = "insert into cours (id, offre, menu, type_cuisine, lieu, date, association) values(:id, :offre, :menu, :type_cuisine, :lieu, :date, :association)";
+            $sql = "insert into cours (id, offre, lieu, date) values(:id, :offre, :lieu, :date)";
             // si l'enregistrement existe on le met a jour.
-            $sql .= " on duplicate key update id=:id, offre=:offre, menu=:menu, type_cuisine=:type_cuisine, lieu=:lieu, date=:date, association:association";
+            $sql .= " on duplicate key update id=:id, offre=:offre, lieu=:lieu, date=:date";
 
             $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
             if($sth->execute(array(
                 ':id' => $_POST['id'],
                 ':offre' => $_POST['offre'],
-                ':menu' => $_POST['menu'],
-                ':type_cuisine' => $_POST['type_cuisine'],
                 ':lieu' => $_POST['lieu'],
-                ':date' => $_POST['date'],
-                ':association' => $_POST['association']
+                ':date' => $_POST['date']
             ))){
                 $lastInsertId = $dbh->lastInsertId();
 

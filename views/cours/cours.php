@@ -25,61 +25,68 @@ $test = implode(",", $postdata['menu']);
 print_r($test);
 ?>
 
-<h1>Réserver une session</h1>
+<h1>Information sur votre cours</h1>
 
 
-<form method="post" action="reservation.php?action=save" enctype="multipart/form-data" id="cours_form"
+<form method="post" action="reservation.php?action=save" enctype="multipart/form-data" id="cours_cours"
       class="form-horizontal">
-    <div class="form-group has-feedback">
-        <label for="offre" class="col-xs-2 control-label">Nombre de participant</label>
-
-        <div class="col-xs-6">
-            <label class="col-xs-3">
-                <input type="radio" id="offre1" name="offre" value="offre1"> Jusqu'à 10 personnes
-            </label>
-
-            <label class="col-xs-3">
-                <input type="radio" id="offre2" name="offre" value="offre2"> Entre 10 et 19 personnes
-            </label>
-
-            <label class="col-xs-3">
-                <input type="radio" id="offre3" name="offre" value="offre3"> Entre 20 et 29 personnes
-            </label>
-
-            <label class="col-xs-3">
-                <input type="radio" id="offre4" name="offre" value="offre4"> Plus de 30 personnes
-            </label>
-        </div>
-    </div>
-
 
     <div class="form-group has-feedback">
-        <label for="lieu" class="col-xs-2 control-label">Où cuisiner ?</label>
+        <label for="menu" class="col-xs-2 control-label">Choix du menu</label>
 
         <div class="col-xs-6">
-            <label class="col-xs-6">
-                <input type="radio" id="lieu1" name="lieu" value="lieu1"> Nous avons des locaux
+            <label class="col-xs-4">
+                <input type="checkbox" id="menu1" name="menu[]" value="entrée"> Entrée
             </label>
 
-            <label class="col-xs-6">
-                <input type="radio" id="lieu2" name="lieu" value="lieu2"> Nous avons besoins d'un lieu
+            <label class="col-xs-4">
+                <input type="checkbox" id="menu2" name="menu[]" value="plat"> Plats
+            </label>
+
+            <label class="col-xs-4">
+                <input type="checkbox" id="menu3" name="menu[]" value="dessert"> Dessert
             </label>
         </div>
     </div>
 
     <div class="form-group has-feedback">
-        <label for="date" class="col-xs-2 control-label">Date</label>
+        <label for="theme_cuisine" class="col-xs-2 control-label">Choix du menu</label>
 
-        <div style="overflow: hidden;">
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div id="datetimepicker1"><input type='text' name="date" class="collapse" value=""/></div>
-                    </div>
-                </div>
-            </div>
+        <div class="col-xs-6">
+            <label class="col-xs-4">
+                <input type="checkbox" id="theme_cuisine1" name="theme_cuisine[]" value="traditionelle"> Cuisine traditionnelle
+            </label>
+
+            <label class="col-xs-4">
+                <input type="checkbox" id="theme_cuisine2" name="theme_cuisine[]" value="monde"> Cuisine du monde
+            </label>
+
+            <label class="col-xs-4">
+                <input type="checkbox" id="theme_cuisine3" name="theme_cuisine[]" value="gastronomie"> Cuisine Gastonomique
+            </label>
         </div>
+    </div>
 
+    <div class="form-group has-feedback">
+        <label for="association" class="col-xs-2 control-label">Pour qui cuisiner ?</label>
+
+        <div class="col-xs-6">
+            <label class="col-xs-3">
+                <input type="checkbox" id="association1" name="association[]" value="resto-du-coeur"> Resto du coeur
+            </label>
+
+            <label class="col-xs-3">
+                <input type="checkbox" id="association2" name="association[]" value="secours-populaire"> Secours populaire
+            </label>
+
+            <label class="col-xs-3">
+                <input type="checkbox" id="association3" name="association[]" value="croix-rouge"> Croix rouge
+            </label>
+
+            <label class="col-xs-3">
+                <input type="checkbox" id="association4" name="association[]" value="association"> Association
+            </label>
+        </div>
     </div>
 
     <input type="submit" id="ajax_form_check" class="btn btn-primary" value="Recevoir un devis">
@@ -92,11 +99,6 @@ print_r($test);
 
     $(function () {
 
-        $('#datetimepicker1').datetimepicker({
-            inline: true,
-            sideBySide: false,
-            format: 'YYYY-MM-DD'
-        });
 
         // errors display function
         function showErrors(errors, inputName, showAsPopover) {
