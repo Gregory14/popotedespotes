@@ -23,9 +23,40 @@ if (DEBUG) {
 var_dump($postdata);
 ?>
 
-<h1>Demande de devis</h1>
+<h1>Merci pour votre commande</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non lectus imperdiet, facilisis magna porttitor, vulputate magna. Nam sodales, orci et finibus dapibus, purus nisi sodales nunc, nec porttitor purus nibh at dui. Nunc suscipit, eros quis egestas vestibulum, massa dolor euismod neque, at tincidunt erat nunc et nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
+<div>
+    <a href="#" class="btn btn-primary">Télécharger le devis</a>
+</div>
 
+<div>
+    <h2>Information de votre compte</h2>
+
+</div>
+
+<div>
+    <h2>Recapitulatif de votre commande n° <?php echo $postdata['devis'];?></h2>
+    <?php echo ($postdata['id']);?></br>
+    <?php echo ($postdata['entreprise']);?></br>
+    <?php echo ($postdata['adresse']);?></br>
+    <?php echo ($postdata['nom']);?></br>
+    <?php echo ($postdata['prenom']);?></br>
+    <?php echo ($postdata['email']);?></br>
+</div>
+
+<div>
+    <h2>Suivez-nous</h2>
+    <ul>
+        <li>Linkedin</li>
+        <li>facebook</li>
+        <li>twitter</li>
+    </ul>
+</div>
+
+<div>
+    <p>Se rendre sur le site <a href="index.php">www.popotedepotes.fr</a></p>
+</div>
 <form method="post" action="devis.php?action=save" enctype="multipart/form-data" id="devis_form"
       class="form-horizontal">
     <div class="form-group has-feedback">
