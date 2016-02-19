@@ -49,16 +49,32 @@ $_SESSION['errors'] = [];
 if (isset($_GET['action'])){
     // demande de verification ajax
     if ($_GET['action'] == "check") {
-        if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
             $states = array('errors' => checkFields($_POST, $_FILES));
             header('Content-type: application/json');
             echo(json_encode($states, JSON_FORCE_OBJECT));
         }
+    //Confirmation commande
+    }else if ($_GET['action'] == 'commande'){
+        if (isset($_GET['devis'])&&isset($_GET['id'])){
+            // recherche dans la table devis les elements avec devis = "$_GET['devis']"
+            $sql = "select * from devis, cours where devis.devis =:devis and cours.id =:id limit 1";
+            $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+            $sth->execute(array(
+                ':devis' => $_GET['devis'],
+                ':id' => $_GET['id']
+            ));
+            $message = $sth -> fetch();
+            // mise en session du contenu de l'element demandé
+            $_SESSION['postdata'] = $message;
+        }
+        render('devis/commande.php');
+
     // demande d'edition
     }else if ($_GET['action'] == "edit"){
         // est ce qu'on m'a fourni un id ?
         if (isset($_GET['devis'])){
-            // recherche dans la table message les elements avec id = "$_GET['id']"
+            // recherche dans la table cours les elements avec id = "$_GET['id']"
             $sql = "select * from devis where devis =:devis limit 1";
             $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
             $sth->execute(array(
@@ -115,7 +131,8 @@ if (isset($_GET['action'])){
                 }
 
                 // la on utilise une redirection au lieu d'un render pour empecher un refresh user
-                header('Location: devis.php');
+                //header('Location: devis.php');
+                header('Location: devis.php?action=commande&devis='.$postdata['devis'].'&id='.$postdata['id']);
             }else{
                 $errors['SQL'] = 'dla merde';
                 // si ca marcha pas on mets les errors et les champs fournis par $_POST en session
@@ -145,7 +162,8 @@ if (isset($_GET['action'])){
     // mise en session des messages et redirection
     $_SESSION['messages'] = $messages;
 
-    render('devis/list.php');
+    //render('devis/list.php');
+    render('devis/form.php');
 }
 
 

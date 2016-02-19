@@ -100,7 +100,8 @@ if (isset($_GET['action'])){
                 }
 
                 // la on utilise une redirection au lieu d'un render pour empecher un refresh user
-                header('Location: reservation.php');
+                //header('Location: devis.php?action=edit');
+                header('Location: devis.php');
             }else{
                 $errors['SQL'] = 'dla merde';
                 // si ca marcha pas on mets les errors et les champs fournis par $_POST en session
@@ -130,7 +131,8 @@ if (isset($_GET['action'])){
     // mise en session des messages et redirection
     $_SESSION['messages'] = $messages;
 
-    render('cours/list.php');
+    //render('cours/list.php');
+    render('cours/form.php');
 }
 
 

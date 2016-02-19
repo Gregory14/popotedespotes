@@ -51,11 +51,11 @@ var_dump($postdata);
 
         <div class="col-xs-6">
             <select id="secteur" name="secteur" class="form-control">
-                    <option value="Agricole">Agricole</option>
-                    <option value="Automobile" >Automobile</option>
-                    <option value="Finance">Finance</option>
-                    <option value="Banque">Banque</option>
-                    <option value="Education">Education</option>
+                    <option value="Agricole" <?php if (isset($postdata['secteur']) && $postdata['secteur']=='Agricole') {echo 'selected';} ?>>Agricole</option>
+                    <option value="Automobile" <?php if (isset($postdata['secteur']) && $postdata['secteur']=='Automobile') {echo 'selected';} ?>>Automobile</option>
+                    <option value="Finance" <?php if (isset($postdata['secteur']) && $postdata['secteur']=='Finance') {echo 'selected';} ?>>Finance</option>
+                    <option value="Banque" <?php if (isset($postdata['secteur']) && $postdata['secteur']=='Banque') {echo 'selected';} ?>>Banque</option>
+                    <option value="Education" <?php if (isset($postdata['secteur']) && $postdata['secteur']=='Education') {echo 'selected';} ?>>Education</option>
             </select>
         </div>
     </div>
@@ -65,10 +65,10 @@ var_dump($postdata);
 
         <div class="col-xs-6">
             <select id="dimension" name="dimension" class="form-control">
-                    <option value="small">Moins de 10</option>
-                    <option value="little">Entre 10 et 20</option>
-                    <option value="normal">Entre 21 et 30</option>
-                    <option value="big">A partir de 31</option>
+                    <option value="small" <?php if (isset($postdata['dimension']) && $postdata['dimension']=='small') {echo 'selected';} ?>>Moins de 10</option>
+                    <option value="little" <?php if (isset($postdata['dimension']) && $postdata['dimension']=='little') {echo 'selected';} ?>>Entre 10 et 20</option>
+                    <option value="normal" <?php if (isset($postdata['dimension']) && $postdata['dimension']=='normal') {echo 'selected';} ?>>Entre 21 et 30</option>
+                    <option value="big" <?php if (isset($postdata['dimension']) && $postdata['dimension']=='big') {echo 'selected';} ?>>A partir de 31</option>
             </select>
             </div>
         </div>
@@ -175,7 +175,7 @@ var_dump($postdata);
         </div>
     </div>
 
-    <input type="submit" id="ajax_form_check" class="btn btn-primary" value="click click">
+    <input type="submit" id="ajax_form_check" class="btn btn-primary" value="Valider le devis">
 
 </form>
 <script>
