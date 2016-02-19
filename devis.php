@@ -78,20 +78,6 @@ if (isset($_GET['action'])){
         // redirection si aucune erreur remontée
         if (count($errors) == 0) {
 
-/*            // test de merde, dans le cas d'un rechargement on devrait ne pas updater les images ?
-            $hires_filename = !empty($_POST['hires'])?$_POST['hires']:'';
-            $thumb_filename = !empty($_POST['thumb'])?$_POST['thumb']:'';
-            $filedata = $_FILES;
-            if (isset($filedata["image"]) && isset($filedata["image"]['name']) && !empty($filedata["image"]['name'])) {
-
-                $hires_filename = basename($filedata["image"]["name"]);
-                // pathinfo permet de retrouver l'extension en fonction d'un chemin de fichier complet
-                $hires_info = pathinfo($hires_filename);
-                // on recupere le nom de fichier sans l'extension
-                // et nomme le thumbnail en tant que jpeg
-                $thumb_filename = $hires_info['filename'] . '.jpeg';
-            }*/
-
 
             /* syntaxe avec preparedStatements */
             $sql = "insert into devis (devis, entreprise, secteur, dimension, siret, adresse, cp, ville, nom, prenom, poste, email, fixe, mobile, message) values(:devis, :entreprise, :secteur, :dimension, :siret, :adresse, :cp, :ville, :nom, :prenom, :poste, :email, :fixe, :mobile, :message)";

@@ -20,7 +20,7 @@ if (DEBUG) {
     echo("</pre>");
 
 }
-
+print_r($postdata);
 ?>
 
 <h1>Réserver une session</h1>
@@ -55,15 +55,15 @@ if (DEBUG) {
 
         <div class="col-xs-6">
             <label class="col-xs-4">
-                <input type="checkbox" id="type_cuisine1" name="type_cuisine" value="type_cuisine1"> Entrée
+                <input type="checkbox" id="type_cuisine1" name="type_cuisine[]" value="entrée"> Entrée
             </label>
 
             <label class="col-xs-4">
-                <input type="checkbox" id="type_cuisine2" name="type_cuisine" value="type_cuisine2"> Plats
+                <input type="checkbox" id="type_cuisine2" name="type_cuisine[]" value="plat"> Plats
             </label>
 
             <label class="col-xs-4">
-                <input type="checkbox" id="type_cuisine3" name="type_cuisine" value="type_cuisine3"> Dessert
+                <input type="checkbox" id="type_cuisine3" name="type_cuisine[]" value="dessert"> Dessert
             </label>
         </div>
     </div>
@@ -73,15 +73,15 @@ if (DEBUG) {
 
         <div class="col-xs-6">
             <label class="col-xs-4">
-                <input type="checkbox" id="theme_cuisine1" name="theme_cuisine" value="theme_cuisine1"> Cuisine traditionnelle
+                <input type="checkbox" id="theme_cuisine1" name="theme_cuisine[]" value="traditionelle"> Cuisine traditionnelle
             </label>
 
             <label class="col-xs-4">
-                <input type="checkbox" id="theme_cuisine2" name="theme_cuisine" value="theme_cuisine2"> Cuisine du monde
+                <input type="checkbox" id="theme_cuisine2" name="theme_cuisine[]" value="monde"> Cuisine du monde
             </label>
 
             <label class="col-xs-4">
-                <input type="checkbox" id="theme_cuisine3" name="theme_cuisine" value="theme_cuisine3"> Cuisine Gastonomique
+                <input type="checkbox" id="theme_cuisine3" name="theme_cuisine[]" value="gastronomie"> Cuisine Gastonomique
             </label>
         </div>
     </div>
@@ -115,7 +115,7 @@ if (DEBUG) {
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-6">
-                        <div id="datetimepicker1"></div>
+                        <div id="datetimepicker1"><input type='text' name="date" class="form-control" placeholder="<?php /*echo date('d/m/Y')*/?>" value=""/></div>
                     </div>
                 </div>
             </div>
@@ -128,19 +128,19 @@ if (DEBUG) {
 
         <div class="col-xs-6">
             <label class="col-xs-3">
-                <input type="checkbox" id="association1" name="association" value="association1"> Resto du coeur
+                <input type="checkbox" id="association1" name="association[]" value="resto-du-coeur"> Resto du coeur
             </label>
 
             <label class="col-xs-3">
-                <input type="checkbox" id="association2" name="association" value="association2"> Secours populaire
+                <input type="checkbox" id="association2" name="association[]" value="secours-populaire"> Secours populaire
             </label>
 
             <label class="col-xs-3">
-                <input type="checkbox" id="association3" name="association" value="association3"> Croix rouge
+                <input type="checkbox" id="association3" name="association[]" value="croix-rouge"> Croix rouge
             </label>
 
             <label class="col-xs-3">
-                <input type="checkbox" id="association4" name="association" value="association4"> Association
+                <input type="checkbox" id="association4" name="association[]" value="association"> Association
             </label>
         </div>
     </div>
