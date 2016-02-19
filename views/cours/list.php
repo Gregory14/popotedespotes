@@ -11,8 +11,8 @@
     for ($i = 0; $i < count($messages); $i++) {
         ?>
         <li>
-            <?= $messages[$i]['id'] ?> / <?= $messages[$i]['name'] ?>
-            <a href="reservation.php?action=edit&cours=<?= $messages[$i]['id'] ?>">Modifier</a>
+            <?= $messages[$i]['id'] ?> / <?= $messages[$i]['offre'] ?>
+            <a href="reservation.php?action=edit&id=<?= $messages[$i]['id'] ?>">Modifier</a>
         </li>
         <?php
     }

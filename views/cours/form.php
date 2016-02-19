@@ -1,9 +1,11 @@
 <?php
+
 $postdata = [];
 if (isset($_SESSION['postdata'])) {
     $postdata = $_SESSION['postdata'];
     $_SESSION['postdata'] = [];
 }
+
 $errors = [];
 if (isset($_SESSION['errors'])) {
     $errors = $_SESSION['errors'];
@@ -20,9 +22,10 @@ if (DEBUG) {
     echo("</pre>");
 
 }
-var_dump($postdata);
-$test = implode(",", $postdata['menu']);
-print_r($test);
+//var_dump($postdata);
+/*$test = implode(",", $postdata['menu']);
+print_r($test);*/
+
 ?>
 
 <h1>Réserver une session</h1>
@@ -30,6 +33,14 @@ print_r($test);
 
 <form method="post" action="reservation.php?action=save" enctype="multipart/form-data" id="cours_form"
       class="form-horizontal">
+    <?php
+    if (isset($postdata) && isset($postdata['id']) && !empty($postdata['id']) ){
+        print_r($postdata);
+    ?>
+    <input type="text" name="id" value="<?php echo $postdata['id'] ?>">
+    <?php
+    }
+    ?>
     <div class="form-group has-feedback">
         <label for="offre" class="col-xs-2 control-label">Nombre de participant</label>
 

@@ -20,7 +20,7 @@ if (DEBUG) {
     echo("</pre>");
 
 }
-
+var_dump($postdata);
 ?>
 
 <h1>Demande de devis</h1>

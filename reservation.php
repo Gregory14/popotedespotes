@@ -53,16 +53,17 @@ if (isset($_GET['action'])){
     // demande d'edition
     }else if ($_GET['action'] == "edit"){
         // est ce qu'on m'a fourni un id ?
-        if (isset($_GET['cours'])){
+        if (isset($_GET['id'])){
             // recherche dans la table message les elements avec id = "$_GET['id']"
-            $sql = "select * from cours where cours =:cours limit 1";
+            $sql = "select * from cours where id =:id limit 1";
             $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
             $sth->execute(array(
-                ':cours' => $_GET['cours']
+                ':id' => $_GET['id']
             ));
-            $message = $sth -> fetch();
+            $reservation = $sth -> fetch();
+            //print_r($reservation);
             // mise en session du contenu de l'element demandé
-            $_SESSION['postdata'] = $message;
+            $_SESSION['postdata'] = $reservation;
         }
         render('cours/form.php');
 
@@ -77,7 +78,7 @@ if (isset($_GET['action'])){
             /* syntaxe avec preparedStatements */
             $sql = "insert into cours (id, offre, lieu, date) values(:id, :offre, :lieu, :date)";
             // si l'enregistrement existe on le met a jour.
-            $sql .= " on duplicate key update id=:id, offre=:offre, lieu=:lieu, date=:date";
+            $sql .= " on duplicate key update offre=:offre, lieu=:lieu, date=:date";
 
             $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
             if($sth->execute(array(
@@ -151,14 +152,14 @@ function checkFields($postdata, $filedata)
             $errors['offre'] = 'champ offre trop long (50max)';
         }
     }
-// test Menu
-    if (isset($postdata['menu'])) {
+// test Lieu
+    if (isset($postdata['lieu'])) {
         // si vide
-        if (empty($postdata['menu'])) {
-            $errors['menu'] = 'champ menu vide';
+        if (empty($postdata['lieu'])) {
+            $errors['lieu'] = 'champ menu vide';
             // si longueur > 50 chars
         } else if (mb_strlen($postdata['menu']) > 50) {
-            $errors['menu'] = 'champ menu trop long (50max)';
+            $errors['lieu'] = 'champ lieu trop long (50max)';
         }
     }
 // test Type Cuisine
@@ -171,101 +172,6 @@ function checkFields($postdata, $filedata)
             $errors['type_cuisine'] = 'champ type cuisine trop long (50max)';
         }
     }
-// test Siret
-    if (isset($postdata['siret'])) {
-        // si vide
-        if (empty($postdata['siret'])) {
-            $errors['siret'] = 'champ nom vide';
-            // si longueur > 14 chars
-        } else if (!is_numeric($postdata['siret'])) {
-            $errors['siret'] = 'champ siret doit comporter uniquement des chiffres';
-        } else if (mb_strlen($postdata['siret']) > 14) {
-            $errors['siret'] = 'champ siret trop long (14max)';
-        }
-    }
-// test Adresse
-    if (isset($postdata['adresse'])) {
-        // si vide
-        if (empty($postdata['adresse'])) {
-            $errors['adresse'] = 'champ adresse vide';
-            // si longueur > 50 chars
-        } else if (mb_strlen($postdata['adresse']) > 50) {
-            $errors['adresse'] = 'champ adresse trop long (50max)';
-        }
-    }
-// test Code Postale
-    if (isset($postdata['cp'])) {
-        // si vide
-        if (empty($postdata['cp'])) {
-            $errors['cp'] = 'champ code postal vide';
-            // si longueur > 50 chars
-        } else if (!is_numeric($postdata['cp'])) {
-            $errors['cp'] = 'champ code postal doit comporter uniquement des chiffres';
-        } else if (mb_strlen($postdata['cp']) > 5) {
-            $errors['cp'] = 'champ code postal trop long (5max)';
-        }
-    }
-// test entreprise
-    if (isset($postdata['ville'])) {
-        // si vide
-        if (empty($postdata['ville'])) {
-            $errors['ville'] = 'champ ville vide';
-            // si longueur > 50 chars
-        } else if (mb_strlen($postdata['ville']) > 50) {
-            $errors['ville'] = 'champ ville trop long (50max)';
-        }
-    }
-// test name
-    if (isset($postdata['nom'])) {
-        // si vide
-        if (empty($postdata['nom'])) {
-            $errors['nom'] = 'champ nom vide';
-            // si longueur > 50 chars
-        } else if (mb_strlen($postdata['nom']) > 50) {
-            $errors['nom'] = 'champ nom trop long (50max)';
-        }
-    }
-// test prénom
-    if (isset($postdata['prenom'])) {
-        // si vide
-        if (empty($postdata['prenom'])) {
-            $errors['prenom'] = 'champ nom vide';
-            // si longueur > 50 chars
-        } else if (mb_strlen($postdata['prenom']) > 50) {
-            $errors['prenom'] = 'champ prenom trop long (50max)';
-        }
-    }
-// filter_var sur email
-    if (isset($postdata['email'])) {
-        // si vide
-        if (empty($postdata['email'])) {
-            $errors['email'] = 'champ email vide';
-            // si longueur > 150 chars
-        } else if (mb_strlen($postdata['email']) > 150) {
-            $errors['email'] = 'champ email trop long (150max)';
-            // si format mail invalide
-        } else if (!filter_var($postdata['email'], FILTER_VALIDATE_EMAIL)) {
-            $errors['email'] = 'champ email non-valide';
-        }
-    }
-// test si message vide
-    if (isset($postdata['message']) && empty(trim($postdata['message']))) {
-        $errors['message'] = 'champ message vide';
-    }
 
     return $errors;
 }
-
-/*
- * $.post('contact_controller.php', $('#contact_form').serialize())
- *
-if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-
-}
-*/
-
-
-
-
-
-
