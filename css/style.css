@@ -171,10 +171,11 @@ figure figcaption {
     position: absolute;
     color: white;
     left: 50%;
-    margin-left: -300px;
+    margin-left: -350px;
     top: 50%;
     margin-top: -60px;
     text-align: center;
+    text-transform: uppercase;
 }
 figure figcaption .btn {
     margin-top:210px;
