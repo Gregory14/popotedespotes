@@ -139,7 +139,7 @@ if (isset($_GET['action'])){
                 $_SESSION['errors'] = $errors;
                 $_SESSION['postdata'] = $_POST;
 
-                render('devis/form.php');
+                render('contact/form.php');
             }
 
 
@@ -149,7 +149,7 @@ if (isset($_GET['action'])){
             $_SESSION['errors'] = $errors;
             $_SESSION['postdata'] = $_POST;
 
-            render('devis/form.php');
+            render('contact/form.php');
         }
     }
 
@@ -163,7 +163,7 @@ if (isset($_GET['action'])){
     $_SESSION['messages'] = $messages;
 
     //render('devis/list.php');
-    render('devis/form.php');
+    render('contact/form.php');
 }
 
 
@@ -185,70 +185,7 @@ function checkFields($postdata, $filedata)
             $errors['entreprise'] = 'champ entreprise trop long (50max)';
         }
     }
-// test Secteur activité
-    if (isset($postdata['secteur'])) {
-        // si vide
-        if (empty($postdata['secteur'])) {
-            $errors['secteur'] = 'champ secteur vide';
-            // si longueur > 50 chars
-        } else if (mb_strlen($postdata['secteur']) > 50) {
-            $errors['secteur'] = 'champ secteur trop long (50max)';
-        }
-    }
-// test Dimension
-    if (isset($postdata['dimension'])) {
-        // si vide
-        if (empty($postdata['dimension'])) {
-            $errors['dimension'] = 'champ dimension vide';
-            // si longueur > 50 chars
-        } else if (mb_strlen($postdata['dimension']) > 50) {
-            $errors['entreprise'] = 'champ dimension trop long (50max)';
-        }
-    }
-// test Siret
-    if (isset($postdata['siret'])) {
-        // si vide
-        if (empty($postdata['siret'])) {
-            $errors['siret'] = 'champ nom vide';
-            // si longueur > 14 chars
-        } else if (!is_numeric($postdata['siret'])) {
-            $errors['siret'] = 'champ siret doit comporter uniquement des chiffres';
-        } else if (mb_strlen($postdata['siret']) > 14) {
-            $errors['siret'] = 'champ siret trop long (14max)';
-        }
-    }
-// test Adresse
-    if (isset($postdata['adresse'])) {
-        // si vide
-        if (empty($postdata['adresse'])) {
-            $errors['adresse'] = 'champ adresse vide';
-            // si longueur > 50 chars
-        } else if (mb_strlen($postdata['adresse']) > 50) {
-            $errors['adresse'] = 'champ adresse trop long (50max)';
-        }
-    }
-// test Code Postale
-    if (isset($postdata['cp'])) {
-        // si vide
-        if (empty($postdata['cp'])) {
-            $errors['cp'] = 'champ code postal vide';
-            // si longueur > 50 chars
-        } else if (!is_numeric($postdata['cp'])) {
-            $errors['cp'] = 'champ code postal doit comporter uniquement des chiffres';
-        } else if (mb_strlen($postdata['cp']) > 5) {
-            $errors['cp'] = 'champ code postal trop long (5max)';
-        }
-    }
-// test entreprise
-    if (isset($postdata['ville'])) {
-        // si vide
-        if (empty($postdata['ville'])) {
-            $errors['ville'] = 'champ ville vide';
-            // si longueur > 50 chars
-        } else if (mb_strlen($postdata['ville']) > 50) {
-            $errors['ville'] = 'champ ville trop long (50max)';
-        }
-    }
+
 // test name
     if (isset($postdata['nom'])) {
         // si vide
@@ -286,46 +223,7 @@ function checkFields($postdata, $filedata)
     if (isset($postdata['message']) && empty(trim($postdata['message']))) {
         $errors['message'] = 'champ message vide';
     }
-/*// test image et resize
-    if (isset($filedata["image"]) && isset($filedata["image"]['name']) && !empty($filedata["image"]['name'])) {
-        $tmp_file = $filedata["image"]['tmp_name'];
-        $hires_file = IMG_HIRES_PATH . basename($filedata["image"]["name"]);
 
-        // pathinfo permet de retrouver l'extension en fonction d'un chemin de fichier complet
-        $hires_info = pathinfo($hires_file);
-        // on recupere le nom de fichier sans l'extension
-        // et nomme le thumbnail en tant que jpeg
-        $thumb_file_name = $hires_info['filename'] . '.jpeg';
-        // on defini le path complet que devra avoir le fichier redimensionné
-        $thumb_file = IMG_THUMBS_PATH . $thumb_file_name;
-
-        // on peut le deplacer ?
-        if (move_uploaded_file($tmp_file, $hires_file)) {
-            // recupere les dimensions de l'image originale et les met dans $width et $height
-            list($width, $height) = getimagesize($hires_file);
-            $ratio = (IMG_THUMBS_WIDTH / $width);
-            // calcul des dimensions de l'image redimensionnée
-            $new_width = round($width * $ratio);
-            $new_height = round($height * $ratio);
-            // lecture en memoire de l'image originale
-            $hires_img = imagecreatefromstring(file_get_contents($hires_file));
-            //creation en memoire d'une image noire des nouvelles dimensions
-            $thumb_img = imagecreatetruecolor($new_width, $new_height);
-
-            // on peut redimensionner ?
-            if (imagecopyresampled($thumb_img, $hires_img, 0, 0, 0, 0, $new_width, $new_height, $width, $height)) {
-                // une erreur lors de l'ecriture du thumbnail ?
-                if (!imagejpeg($thumb_img, $thumb_file)) {
-                    $errors['image'] = 'erreur ecriture thumbnail image';
-                }
-            } else {
-                $errors['image'] = 'erreur generation thumbnail image';
-            }
-        } else {
-            $errors['image'] = 'erreur deplacement fichier image';
-        }
-
-    }*/
     return $errors;
 }
 
