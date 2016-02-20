@@ -127,7 +127,7 @@
 <hr-->
 
 <figure>
-    <img src="/img/heroBackground.jpg">
+    <img src="img/heroBackground.jpg">
     <figcaption>
         <h1>Cuisinez éthique</h1>
         <h2>Fédérez vos équipes autour d’une cause</h2>
