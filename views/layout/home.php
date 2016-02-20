@@ -65,7 +65,7 @@ if (DEBUG) {
             </div>
             <div class="col-lg-4">
                 <article class="square">
-                    <img src="/img/homeRungis.jpg">
+                    <img src="img/homeRungis.jpg">
                    <div class="details">
                        <h4>Rungis</h4>
                        <p></p>
@@ -74,7 +74,7 @@ if (DEBUG) {
             </div>
             <div class="col-lg-4">
                 <article class="square">
-                    <img src="/img/homeDistrib.jpg">
+                    <img src="img/homeDistrib.jpg">
                     <div class="details">
                         <h4>Grande distribution</h4>
                         <p></p>
@@ -85,7 +85,7 @@ if (DEBUG) {
             <div class="row">
             <div class="col-lg-8">
                 <article class="rectangle">
-                    <img src="/img/homeAgriculteur.jpg">
+                    <img src="img/homeAgriculteur.jpg">
                     <div class="details">
                         <h4>Producteurs locaux</h4>
                         <p></p>
@@ -94,7 +94,7 @@ if (DEBUG) {
             </div>
             <div class="col-lg-4">
                 <article class="square">
-                    <img src="/img/homeRestaurateur.jpg">
+                    <img src="img/homeRestaurateur.jpg">
                     <div class="details">
                         <h4>Restaurateurs</h4>
                         <p></p>
@@ -113,7 +113,7 @@ if (DEBUG) {
                 </div>
                 <div class="col-lg-4">
                     <article class="square">
-                        <img src="/img/homeMarx.jpg">
+                        <img src="img/homeMarx.jpg">
                         <div class="details">
                             <h4>Thierry Marx</h4>
                             <p></p>
@@ -122,7 +122,7 @@ if (DEBUG) {
                 </div>
                 <div class="col-lg-4">
                     <article class="square">
-                        <img src="/img/homeViola.jpg">
+                        <img src="img/homeViola.jpg">
                         <div class="details">
                             <h4>Joseph Viola</h4>
                             <p></p>
@@ -133,7 +133,7 @@ if (DEBUG) {
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-4">
                     <article class="rectangle">
-                        <img src="/img/homePourcel.jpg">
+                        <img src="img/homePourcel.jpg">
                         <div class="details">
                             <h4>Les frères Pourcel</h4>
                             <p></p>
@@ -153,7 +153,7 @@ if (DEBUG) {
                 </div>
                 <div class="col-lg-4">
                     <article class="square">
-                        <img src="/img/homePauvres.jpg">
+                        <img src="img/homePauvres.jpg">
                         <div class="details">
                             <h4>Rungis</h4>
                             <p></p>
@@ -162,7 +162,7 @@ if (DEBUG) {
                 </div>
                 <div class="col-lg-4">
                     <article class="square">
-                        <img src="/img/homeBanque.jpg">
+                        <img src="img/homeBanque.jpg">
                         <div class="details">
                             <h4>Grande distribution</h4>
                             <p></p>
@@ -173,7 +173,7 @@ if (DEBUG) {
             <div class="row">
                 <div class="col-lg-4 col-lg-offset-4">
                     <article class="square">
-                        <img src="/img/homeArmee.jpg">
+                        <img src="img/homeArmee.jpg">
                         <div class="details">
                             <h4>Rungis</h4>
                             <p></p>
@@ -182,7 +182,7 @@ if (DEBUG) {
                 </div>
                 <div class="col-lg-4">
                     <article class="square">
-                        <img src="/img/homeRestos.jpg">
+                        <img src="img/homeRestos.jpg">
                         <div class="details">
                             <h4>Grande distribution</h4>
                             <p></p>

@@ -25,10 +25,37 @@ $test = implode(",", $postdata['menu']);
 print_r($test);
 ?>
 
-<h1>Information sur votre cours</h1>
+<h1>Votre cours de cuisine du monde</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor erat eu lorem consequat lobortis. Integer tortor elit, sodales sed rutrum finibus, pellentesque tincidunt ex. In in enim tellus. Aliquam erat volutpat. Sed volutpat viverra urna, nec aliquam orci venenatis sed. Nam gravida blandit nulla, a accumsan quam luctus lacinia. Donec blandit libero sit amet augue ultricies rhoncus.</p>
 
+<section>
+    <h2>La recette</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor erat eu lorem consequat lobortis. Integer tortor elit, sodales sed rutrum finibus, pellentesque tincidunt ex. In in enim tellus. Aliquam erat volutpat. Sed volutpat viverra urna, nec aliquam orci venenatis sed. Nam gravida blandit nulla, a accumsan quam luctus lacinia. Donec blandit libero sit amet augue ultricies rhoncus.</p>
+</section>
 
-<form method="post" action="reservation.php?action=save" enctype="multipart/form-data" id="cours_cours"
+<section>
+    <h2>Les ingrédients</h2>
+    <div><img src="" alt="">
+        <h3>Cuisiner des invendus</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor erat eu lorem consequat lobortis. Integer tortor elit, sodales sed rutrum finibus, pellentesque tincidunt ex. In in enim tellus. Aliquam erat volutpat. Sed volutpat viverra urna, nec aliquam orci venenatis sed. Nam gravida blandit nulla, a accumsan quam luctus lacinia. Donec blandit libero sit amet augue ultricies rhoncus.</p>
+    </div>
+    <div><img src="" alt="">
+        <h3>Avec un chef</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor erat eu lorem consequat lobortis. Integer tortor elit, sodales sed rutrum finibus, pellentesque tincidunt ex. In in enim tellus. Aliquam erat volutpat. Sed volutpat viverra urna, nec aliquam orci venenatis sed. Nam gravida blandit nulla, a accumsan quam luctus lacinia. Donec blandit libero sit amet augue ultricies rhoncus.</p>
+    </div>
+    <div><img src="" alt="">
+        <h3>Pour aider</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor erat eu lorem consequat lobortis. Integer tortor elit, sodales sed rutrum finibus, pellentesque tincidunt ex. In in enim tellus. Aliquam erat volutpat. Sed volutpat viverra urna, nec aliquam orci venenatis sed. Nam gravida blandit nulla, a accumsan quam luctus lacinia. Donec blandit libero sit amet augue ultricies rhoncus.</p>
+    </div>
+</section>
+
+<section>
+    <h2>Le chef</h2>
+    <h3>Thierry Marx</h3>
+    <img src="" alt="">
+</section>
+
+<form method="post" action="mon-cours.php?action=save" enctype="multipart/form-data" id="cours"
       class="form-horizontal">
 
     <div class="form-group has-feedback">
@@ -36,33 +63,39 @@ print_r($test);
 
         <div class="col-xs-6">
             <label class="col-xs-4">
-                <input type="checkbox" id="menu1" name="menu[]" value="entrée"> Entrée
+                <input type="checkbox" id="menu1" name="menu[]" value="entrée"
+                <?php if (isset($postdata['menu']) && $postdata['menu']=='entrée') {echo 'checked';} ?>> Entrée
             </label>
 
             <label class="col-xs-4">
-                <input type="checkbox" id="menu2" name="menu[]" value="plat"> Plats
+                <input type="checkbox" id="menu2" name="menu[]" value="plat"
+                <?php if (isset($postdata['menu']) && $postdata['menu']=='plat') {echo 'checked';} ?>> Plats
             </label>
 
             <label class="col-xs-4">
-                <input type="checkbox" id="menu3" name="menu[]" value="dessert"> Dessert
+                <input type="checkbox" id="menu3" name="menu[]" value="dessert"
+                <?php if (isset($postdata['menu']) && $postdata['menu']=='dessert') {echo 'checked';} ?>> Dessert
             </label>
         </div>
     </div>
 
     <div class="form-group has-feedback">
-        <label for="theme_cuisine" class="col-xs-2 control-label">Choix du menu</label>
+        <label for="type_cuisine" class="col-xs-2 control-label">Type de cuisine</label>
 
         <div class="col-xs-6">
             <label class="col-xs-4">
-                <input type="checkbox" id="theme_cuisine1" name="theme_cuisine[]" value="traditionelle"> Cuisine traditionnelle
+                <input type="checkbox" id="type_cuisine1" name="type_cuisine[]" value="traditionelle"
+                <?php if (isset($postdata['secteur']) && $postdata['secteur']=='traditionelle') {echo 'checked';} ?>> Cuisine traditionnelle
             </label>
 
             <label class="col-xs-4">
-                <input type="checkbox" id="theme_cuisine2" name="theme_cuisine[]" value="monde"> Cuisine du monde
+                <input type="checkbox" id="type_cuisine2" name="type_cuisine[]" value="monde"
+                <?php if (isset($postdata['secteur']) && $postdata['secteur']=='monde') {echo 'checked';} ?>> Cuisine du monde
             </label>
 
             <label class="col-xs-4">
-                <input type="checkbox" id="theme_cuisine3" name="theme_cuisine[]" value="gastronomie"> Cuisine Gastonomique
+                <input type="checkbox" id="type_cuisine3" name="type_cuisine[]" value="gastronomie"
+                <?php if (isset($postdata['secteur']) && $postdata['secteur']=='gastronomie') {echo 'checked';} ?>> Cuisine Gastonomique
             </label>
         </div>
     </div>
@@ -72,24 +105,59 @@ print_r($test);
 
         <div class="col-xs-6">
             <label class="col-xs-3">
-                <input type="checkbox" id="association1" name="association[]" value="resto-du-coeur"> Resto du coeur
+                <input type="checkbox" id="association1" name="association[]" value="resto-du-coeur"
+                <?php if (isset($postdata['secteur']) && $postdata['secteur']=='resto-du-coeur') {echo 'checked';} ?>> Resto du coeur
             </label>
 
             <label class="col-xs-3">
-                <input type="checkbox" id="association2" name="association[]" value="secours-populaire"> Secours populaire
+                <input type="checkbox" id="association2" name="association[]" value="secours-populaire"
+                <?php if (isset($postdata['secteur']) && $postdata['secteur']=='secours-populaire') {echo 'checked';} ?>> Secours populaire
             </label>
 
             <label class="col-xs-3">
-                <input type="checkbox" id="association3" name="association[]" value="croix-rouge"> Croix rouge
+                <input type="checkbox" id="association3" name="association[]" value="croix-rouge"
+                <?php if (isset($postdata['secteur']) && $postdata['secteur']=='croix-rouge') {echo 'checked';} ?>> Croix rouge
             </label>
 
             <label class="col-xs-3">
-                <input type="checkbox" id="association4" name="association[]" value="association"> Association
+                <input type="checkbox" id="association4" name="association[]" value="association"
+                <?php if (isset($postdata['secteur']) && $postdata['secteur']=='association') {echo 'checked';} ?>> Association
             </label>
         </div>
     </div>
 
-    <input type="submit" id="ajax_form_check" class="btn btn-primary" value="Recevoir un devis">
+    <div class="form-group has-feedback">
+        <label for="contraintes" class="col-xs-2 control-label">Mon cours</label>
+        <div></div>
+
+        <div class="col-xs-6">
+            <label class="col-xs-3">
+                <input type="checkbox" id="contraintes1" name="contraintes[]" value="Hallal"
+                <?php if (isset($postdata['secteur']) && $postdata['secteur']=='Hallal') {echo 'checked';} ?>> Resto du coeur
+            </label>
+
+            <label class="col-xs-3">
+                <input type="checkbox" id="contraintes2" name="contraintes[]" value="Vegan"
+                <?php if (isset($postdata['secteur']) && $postdata['secteur']=='Vegan') {echo 'checked';} ?>> Vegan
+            </label>
+
+            <label class="col-xs-3">
+                <input type="checkbox" id="contraintes3" name="contraintes[]" value="Allergie"
+                <?php if (isset($postdata['secteur']) && $postdata['secteur']=='Allergie') {echo 'checked';} ?>> Allergie
+            </label>
+
+            <label class="col-xs-3">
+                <input type="checkbox" id="contraintes4" name="contraintes[]" value="Casher"
+                <?php if (isset($postdata['secteur']) && $postdata['secteur']=='Casher') {echo 'checked';} ?>> Casher
+            </label>
+            <label class="col-xs-3">
+                <input type="text" id="contraintes5" name="contraintes[]" placeholder="i.e : La popote des potes"
+                       value="<?php echo !empty($postdata['contraintes']) ? ($postdata['contraintes']) : '' ?>">
+            </label>
+        </div>
+    </div>
+
+    <input type="submit" id="ajax_form_check" class="btn btn-primary" value="Je participe">
 
 </form>
 <script>

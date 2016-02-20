@@ -41,7 +41,7 @@ var_dump($postdata);
         <label for="entreprise" class="col-xs-2 control-label">Entreprise</label>
 
         <div class="col-xs-6">
-            <input type="text" id="entreprise" name="entreprise" class="form-control" placeholder="i.e : La popote des potes"
+            <input type="text" id="entreprise" name="entreprise" class="form-control" placeholder="La popote des potes"
                    value="<?php echo !empty($postdata['entreprise']) ? ($postdata['entreprise']) : '' ?>">
         </div>
     </div>
@@ -51,11 +51,11 @@ var_dump($postdata);
 
         <div class="col-xs-6">
             <select id="secteur" name="secteur" class="form-control">
-                    <option value="Agricole">Agricole</option>
-                    <option value="Automobile" >Automobile</option>
-                    <option value="Finance">Finance</option>
-                    <option value="Banque">Banque</option>
-                    <option value="Education">Education</option>
+                    <option value="Agricole" <?php if (isset($postdata['secteur']) && $postdata['secteur']=='Agricole') {echo 'selected';} ?>>Agricole</option>
+                    <option value="Automobile" <?php if (isset($postdata['secteur']) && $postdata['secteur']=='Automobile') {echo 'selected';} ?>>Automobile</option>
+                    <option value="Finance" <?php if (isset($postdata['secteur']) && $postdata['secteur']=='Finance') {echo 'selected';} ?>>Finance</option>
+                    <option value="Banque" <?php if (isset($postdata['secteur']) && $postdata['secteur']=='Banque') {echo 'selected';} ?>>Banque</option>
+                    <option value="Education" <?php if (isset($postdata['secteur']) && $postdata['secteur']=='Education') {echo 'selected';} ?>>Education</option>
             </select>
         </div>
     </div>
@@ -65,10 +65,10 @@ var_dump($postdata);
 
         <div class="col-xs-6">
             <select id="dimension" name="dimension" class="form-control">
-                    <option value="small">Moins de 10</option>
-                    <option value="little">Entre 10 et 20</option>
-                    <option value="normal">Entre 21 et 30</option>
-                    <option value="big">A partir de 31</option>
+                    <option value="small" <?php if (isset($postdata['dimension']) && $postdata['dimension']=='small') {echo 'selected';} ?>>Moins de 10</option>
+                    <option value="little" <?php if (isset($postdata['dimension']) && $postdata['dimension']=='little') {echo 'selected';} ?>>Entre 10 et 20</option>
+                    <option value="normal" <?php if (isset($postdata['dimension']) && $postdata['dimension']=='normal') {echo 'selected';} ?>>Entre 21 et 30</option>
+                    <option value="big" <?php if (isset($postdata['dimension']) && $postdata['dimension']=='big') {echo 'selected';} ?>>A partir de 31</option>
             </select>
             </div>
         </div>
@@ -113,7 +113,7 @@ var_dump($postdata);
         <label for="name" class="col-xs-2 control-label">Nom</label>
 
         <div class="col-xs-6">
-            <input type="text" id="nom" name="nom" class="form-control" placeholder="i.e : Dupont"
+            <input type="text" id="nom" name="nom" class="form-control" placeholder="Dupont"
                    value="<?php echo !empty($postdata['nom']) ? ($postdata['nom']) : '' ?>">
         </div>
     </div>
@@ -122,7 +122,7 @@ var_dump($postdata);
         <label for="prenom" class="col-xs-2 control-label">Prénom</label>
 
         <div class="col-xs-6">
-            <input type="text" id="prenom" name="prenom" class="form-control" placeholder="i.e : Paul"
+            <input type="text" id="prenom" name="prenom" class="form-control" placeholder="Paul"
                    value="<?php echo !empty($postdata['prenom']) ? ($postdata['prenom']) : '' ?>">
         </div>
     </div>
@@ -141,7 +141,7 @@ var_dump($postdata);
 
         <div class="col-xs-6">
             <input type="text" autocomplete="0" id="email" name="email" class="form-control"
-                   placeholder="i.e : exemple@lapopotedespotes.net"
+                   placeholder="exemple@lapopotedespotes.net"
                    value="<?= !empty($postdata['email']) ? ($postdata['email']) : '' ?>">
         </div>
     </div>
@@ -150,7 +150,7 @@ var_dump($postdata);
         <label for="fixe" class="col-xs-2 control-label">Téléphone</label>
 
         <div class="col-xs-6">
-            <input type="tel" id="fixe" name="fixe" class="form-control" placeholder="i.e : 01234567890"
+            <input type="tel" id="fixe" name="fixe" class="form-control" placeholder="01234567890"
                    value="<?php echo !empty($postdata['fixe']) ? ($postdata['fixe']) : '' ?>">
         </div>
     </div>
@@ -159,7 +159,7 @@ var_dump($postdata);
         <label for="portable" class="col-xs-2 control-label">Portable</label>
 
         <div class="col-xs-6">
-            <input type="tel" id="mobile" name="mobile" class="form-control" placeholder="i.e : Paul"
+            <input type="tel" id="mobile" name="mobile" class="form-control" placeholder="064534786509"
                    value="<?php echo !empty($postdata['mobile']) ? ($postdata['mobile']) : '' ?>">
         </div>
     </div>
@@ -175,7 +175,7 @@ var_dump($postdata);
         </div>
     </div>
 
-    <input type="submit" id="ajax_form_check" class="btn btn-primary" value="click click">
+    <input type="submit" id="ajax_form_check" class="btn btn-primary" value="Valider le devis">
 
 </form>
 <script>
