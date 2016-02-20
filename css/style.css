@@ -195,15 +195,15 @@ figure figcaption .btn {
     margin-bottom:30px;
 }
 #ingredients h4::before {
-    content:url(/img/carotte.png);
+    content:url(../img/carotte.png);
     display:block;
     margin-bottom:35px;
 }
 #ingredients .row:first-child > div:nth-child(3) h4:before {
-    content:url(/img/ToqueChef.png);
+    content:url(../img/ToqueChef.png);
 }
 #ingredients .row:first-child > div:nth-child(4) h4:before {
-    content:url(/img/marmitte.png);
+    content:url(../img/marmitte.png);
 }
 #ingredients .row:nth-child(2) {
     margin-top:60px;
@@ -212,7 +212,7 @@ figure figcaption .btn {
 /*_______SECTION PARTENAIRES_______*/
 
 #partners {
-    background: url(/img/pattern.jpg) repeat-x;
+    background: url(../img/pattern.jpg) repeat-x;
     background-size: 25%;
     padding-top: 140px;
 }
@@ -220,7 +220,7 @@ figure figcaption .btn {
 /*_______SECTION CHEFS_______*/
 
 #chefs {
-    background: url(/img/chefBkg.jpg) no-repeat;
+    background: url(../img/chefBkg.jpg) no-repeat;
     background-position: 0 230px;
     background-size: cover;
     padding-bottom: 350px;
@@ -244,7 +244,7 @@ figure figcaption .btn {
 /*_______FOOTER_______*/
 
 footer {
-    background-image:linear-gradient(rgba(248,245,192,0.7), rgba(248,245,192,0.7)), url(/img/pattern.jpg);
+    background-image:linear-gradient(rgba(248,245,192,0.7), rgba(248,245,192,0.7)), url(../img/pattern.jpg);
     background-size: 25%;
     text-align: center;
     padding: 50px 0;
