@@ -132,7 +132,8 @@ if (isset($_GET['action'])){
 
                 // la on utilise une redirection au lieu d'un render pour empecher un refresh user
                 //header('Location: devis.php');
-                header('Location: devis.php?action=commande&devis='.$postada['devis']);
+                $test = $_SESSION['ID-cours'];
+                header('Location: devis.php?action=commande&devis='.$lastInsertId.'&id='.$test);
             }else{
                 $errors['SQL'] = 'dla merde';
                 // si ca marcha pas on mets les errors et les champs fournis par $_POST en session

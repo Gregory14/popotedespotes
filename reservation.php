@@ -97,6 +97,7 @@ if (isset($_GET['action'])){
                     $_SESSION['usermessage'] = 'Aucune modification';
                 }else{
                     $_SESSION['usermessage'] = 'L\'enregistrement N° '. $lastInsertId .' a été enregistré';
+                    $_SESSION['ID-cours'] = $lastInsertId;
                 }
 
                 // la on utilise une redirection au lieu d'un render pour empecher un refresh user
