@@ -75,6 +75,16 @@ article:hover .details{
     padding-top:5%;
     background:rgba(0,0,0,0.5);
 }
+
+.bottomBar {
+    width:100%;
+    height:40px;
+    bottom:0;
+    left:0;
+    background-color:white;
+    z-index:10;
+    position:fixed;
+}
 /*_______HEADER_______*/
 
 header {
@@ -84,7 +94,7 @@ header {
     left: 40px;
     background: transparent;
     z-index: 10;
-    padding: 20px;
+    padding: 10px;
 }
 header.fixedHeader {
     position:fixed;
@@ -93,20 +103,17 @@ header.fixedHeader {
 header.fixedHeader.whiteHeader {
     background-color:white;
     height:40px;
+    padding: 2px 10px;
 }
 header.fixedHeader.whiteHeader svg {
     fill:#F37168;
-    -webkit-transform: translateY(-18px);
-    -moz-transform: translateY(-18px);
-    -ms-transform: translateY(-18px);
-    -o-transform: translateY(-18px);
-    transform: translateY(-18px);
+
     transition: transform ease-in 0.1s;
     transition: fill ease-in 0.2s;
 }
 
 header.fixedHeader.whiteHeader .menu-icon {
-    transform:translateY(-14px);
+
 }
 header.fixedHeader.whiteHeader .hideable {
     display:none;
@@ -125,12 +132,33 @@ header svg {
 header nav {
     float:right;
     display: none;
+    -webkit-transition: all ease-in 0.2s;
+    -moz-transition: all ease-in 0.2s;
+    -ms-transition: all ease-in 0.2s;
+    -o-transition: all ease-in 0.2s;
+    transition: all ease-in 0.2s;
+    margin-top:30px;
+}
+header nav a {
+    color:black;
+}
+header.fixedHeader.whiteHeader nav {
+    margin-top:43px;
+}
+header nav.visible {
+    display:block;
+}
+header nav li {
+    background-color: white;
+    padding: 10px 12px;
+    margin-bottom: 5px;
+    text-align: center;
 }
 header .menu-icon {
     cursor: pointer;
     position: absolute;
-    top: 30px;
-    right: 20px;
+    top: 15px;
+    right: 15px;
 }
 header .menu-icon span{
     width: 35px;
@@ -254,4 +282,13 @@ footer {
 footer svg {
     width:200px;
     fill:white;
+}
+
+footer .links {
+    text-align:left;
+    padding-top:60px;
+}
+
+footer .links a {
+    color:black;
 }

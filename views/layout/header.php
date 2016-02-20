@@ -135,3 +135,5 @@
     </figcaption>
 
 </figure>
+
+<div class="bottomBar"></div>

@@ -1,5 +1,6 @@
 $(function(){
     $(document).scroll(function(){
+
         var $scroll = $(window).scrollTop();
         $('figure img').css('transform',"translateY(" +  ($scroll * 0.4) + "px)");
         if($(this).scrollTop() > 40) {
@@ -13,5 +14,9 @@ $(function(){
             $('header').removeClass('fixedHeader');
             //$('figure img').css('transform',"translateY(0px)");
         }
+    })
+
+    $('.menu-icon').click(function(){
+        $('#main-menu').toggleClass('visible');
     })
 });
