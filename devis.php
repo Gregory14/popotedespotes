@@ -282,6 +282,31 @@ function checkFields($postdata, $filedata)
             $errors['email'] = 'champ email non-valide';
         }
     }
+// test Telephone
+    if (isset($postdata['fixe'])) {
+        // si vide
+        if (empty($postdata['fixe'])) {
+            $errors['fixe'] = 'champ téléphone vide';
+            // si longueur > 10 chars
+        } else if (!is_numeric($postdata['fixe'])) {
+            $errors['fixe'] = 'champ numéro doit comporter uniquement des chiffres';
+        } else if (mb_strlen($postdata['fixe']) > 10) {
+            $errors['fixe'] = 'Numéro invalide (10max)';
+        }
+    }
+// test Mobile
+    if (isset($postdata['mobile'])) {
+        // si vide
+        if (empty($postdata['mobile'])) {
+            $errors['mobile'] = 'champ mobile vide';
+            // si longueur > 10 chars
+        } else if (!is_numeric($postdata['mobile'])) {
+            $errors['mobile'] = 'champ mobile doit comporter uniquement des chiffres';
+        } else if (mb_strlen($postdata['fixe']) > 10) {
+            $errors['mobile'] = 'Numéro invalide (10max)';
+        }
+    }
+
 // test si message vide
     if (isset($postdata['message']) && empty(trim($postdata['message']))) {
         $errors['message'] = 'champ message vide';

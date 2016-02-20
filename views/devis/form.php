@@ -41,7 +41,7 @@ var_dump($postdata);
         <label for="entreprise" class="col-xs-2 control-label">Entreprise</label>
 
         <div class="col-xs-6">
-            <input type="text" id="entreprise" name="entreprise" class="form-control" placeholder="i.e : La popote des potes"
+            <input type="text" id="entreprise" name="entreprise" class="form-control" placeholder="La popote des potes"
                    value="<?php echo !empty($postdata['entreprise']) ? ($postdata['entreprise']) : '' ?>">
         </div>
     </div>
@@ -113,7 +113,7 @@ var_dump($postdata);
         <label for="name" class="col-xs-2 control-label">Nom</label>
 
         <div class="col-xs-6">
-            <input type="text" id="nom" name="nom" class="form-control" placeholder="i.e : Dupont"
+            <input type="text" id="nom" name="nom" class="form-control" placeholder="Dupont"
                    value="<?php echo !empty($postdata['nom']) ? ($postdata['nom']) : '' ?>">
         </div>
     </div>
@@ -122,7 +122,7 @@ var_dump($postdata);
         <label for="prenom" class="col-xs-2 control-label">Prénom</label>
 
         <div class="col-xs-6">
-            <input type="text" id="prenom" name="prenom" class="form-control" placeholder="i.e : Paul"
+            <input type="text" id="prenom" name="prenom" class="form-control" placeholder="Paul"
                    value="<?php echo !empty($postdata['prenom']) ? ($postdata['prenom']) : '' ?>">
         </div>
     </div>
@@ -141,7 +141,7 @@ var_dump($postdata);
 
         <div class="col-xs-6">
             <input type="text" autocomplete="0" id="email" name="email" class="form-control"
-                   placeholder="i.e : exemple@lapopotedespotes.net"
+                   placeholder="exemple@lapopotedespotes.net"
                    value="<?= !empty($postdata['email']) ? ($postdata['email']) : '' ?>">
         </div>
     </div>
@@ -150,7 +150,7 @@ var_dump($postdata);
         <label for="fixe" class="col-xs-2 control-label">Téléphone</label>
 
         <div class="col-xs-6">
-            <input type="tel" id="fixe" name="fixe" class="form-control" placeholder="i.e : 01234567890"
+            <input type="tel" id="fixe" name="fixe" class="form-control" placeholder="01234567890"
                    value="<?php echo !empty($postdata['fixe']) ? ($postdata['fixe']) : '' ?>">
         </div>
     </div>
@@ -159,7 +159,7 @@ var_dump($postdata);
         <label for="portable" class="col-xs-2 control-label">Portable</label>
 
         <div class="col-xs-6">
-            <input type="tel" id="mobile" name="mobile" class="form-control" placeholder="i.e : Paul"
+            <input type="tel" id="mobile" name="mobile" class="form-control" placeholder="064534786509"
                    value="<?php echo !empty($postdata['mobile']) ? ($postdata['mobile']) : '' ?>">
         </div>
     </div>

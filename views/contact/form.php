@@ -20,7 +20,7 @@ if (DEBUG) {
     echo("</pre>");
 
 }
-
+print_r($postdata)
 ?>
 
 <h1>Un question ?</h1>
@@ -36,8 +36,8 @@ if (DEBUG) {
         <label for="name" class="col-xs-2 control-label">Nom</label>
 
         <div class="col-xs-6">
-            <input type="text" id="name" name="name" class="form-control" placeholder="i.e : Bob"
-                   value="<?php echo !empty($postdata['name']) ? ($postdata['name']) : '' ?>">
+            <input type="text" id="nom" name="nom" class="form-control" placeholder="Bob"
+                   value="<?php echo !empty($postdata['nom']) ? ($postdata['nom']) : '' ?>">
         </div>
     </div>
 
@@ -45,7 +45,7 @@ if (DEBUG) {
         <label for="prenom" class="col-xs-2 control-label">Prénom</label>
 
         <div class="col-xs-6">
-            <input type="text" id="prenom" name="prenom" class="form-control" placeholder="i.e : Jean"
+            <input type="text" id="prenom" name="prenom" class="form-control" placeholder="Jean"
                    value="<?php echo !empty($postdata['prenom']) ? ($postdata['prenom']) : '' ?>">
         </div>
     </div>
@@ -55,7 +55,7 @@ if (DEBUG) {
 
         <div class="col-xs-6">
             <input type="text" autocomplete="0" id="email" name="email" class="form-control"
-                   placeholder="i.e : toto@toto.com"
+                   placeholder="toto@toto.com"
                    value="<?= !empty($postdata['email']) ? ($postdata['email']) : '' ?>">
         </div>
     </div>
@@ -64,7 +64,7 @@ if (DEBUG) {
         <label for="fixe" class="col-xs-2 control-label">Téléphone</label>
 
         <div class="col-xs-6">
-            <input type="tel" id="telephone" name="telephone" class="form-control" placeholder="i.e : 0176543975"
+            <input type="tel" id="telephone" name="telephone" class="form-control" placeholder="0176543975"
                    value="<?php echo !empty($postdata['telephone']) ? ($postdata['telephone']) : '' ?>">
         </div>
     </div>
@@ -73,7 +73,7 @@ if (DEBUG) {
         <label for="entreprise" class="col-xs-2 control-label">Entreprise</label>
 
         <div class="col-xs-6">
-            <input type="text" id="entreprise" name="entreprise" class="form-control" placeholder="i.e : La popote des potes"
+            <input type="text" id="entreprise" name="entreprise" class="form-control" placeholder="La popote des potes"
                    value="<?php echo !empty($postdata['entreprise']) ? ($postdata['entreprise']) : '' ?>">
         </div>
     </div>
@@ -139,7 +139,7 @@ if (DEBUG) {
         // on focus
         // do nothing, cleanup awaiting user input
 
-        $('#message_form input, #message_form textarea').on('focus', function (e) {
+        $('#contact_form input, #contact_form textarea').on('focus', function (e) {
             e.preventDefault() && e.stopPropagation();
             console.log('focus', this);
             var that = this;
@@ -153,7 +153,7 @@ if (DEBUG) {
         // on keyup
         // check if input is Ok via ajax, if not, display a warning in popover
 
-        $('#message_form input, #message_form textarea').on('keyup', function (e) {
+        $('#contact_form input, #contact_form textarea').on('keyup', function (e) {
             e.preventDefault() && e.stopPropagation();
             console.log('keyup', this);
             var that = this;
@@ -172,7 +172,7 @@ if (DEBUG) {
         // check if input is Ok via ajax, if not, display a warning under field
         // remove previous popovers
 
-        $('#message_form input, #message_form textarea').on('blur', function (e) {
+        $('#contact_form input, #contact_form textarea').on('blur', function (e) {
             e.preventDefault() && e.stopPropagation();
             console.log('blur', this);
             var that = this;
@@ -188,7 +188,7 @@ if (DEBUG) {
         });
 
         // display errors if errors retrieved from PHP form submit
-        $('#message_form input, #message_form textarea').each(function () {
+        $('#contact_form input, #contact_form textarea').each(function () {
             var that = this;
             var inputName = $(that).attr('name');
             var errors = phpErrors;
