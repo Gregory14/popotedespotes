@@ -312,56 +312,21 @@ function checkFields($postdata, $filedata)
     if (isset($postdata['message']) && empty(trim($postdata['message']))) {
         $errors['message'] = 'champ message vide';
     }
-/*// test image et resize
-    if (isset($filedata["image"]) && isset($filedata["image"]['name']) && !empty($filedata["image"]['name'])) {
-        $tmp_file = $filedata["image"]['tmp_name'];
-        $hires_file = IMG_HIRES_PATH . basename($filedata["image"]["name"]);
+// test envoi CSV
+    if (isset($filedata["file"]) && isset($filedata["file"]['name']) && !empty($filedata["file"]['name'])) {
+        $tmp_file = $filedata["file"]['tmp_name'];
+        $hires_file = IMG_HIRES_PATH . basename($filedata["file"]["name"]);
 
-        // pathinfo permet de retrouver l'extension en fonction d'un chemin de fichier complet
-        $hires_info = pathinfo($hires_file);
-        // on recupere le nom de fichier sans l'extension
-        // et nomme le thumbnail en tant que jpeg
-        $thumb_file_name = $hires_info['filename'] . '.jpeg';
-        // on defini le path complet que devra avoir le fichier redimensionné
-        $thumb_file = IMG_THUMBS_PATH . $thumb_file_name;
+        $extension = substr($hires_file,-4);
 
-        // on peut le deplacer ?
-        if (move_uploaded_file($tmp_file, $hires_file)) {
-            // recupere les dimensions de l'image originale et les met dans $width et $height
-            list($width, $height) = getimagesize($hires_file);
-            $ratio = (IMG_THUMBS_WIDTH / $width);
-            // calcul des dimensions de l'image redimensionnée
-            $new_width = round($width * $ratio);
-            $new_height = round($height * $ratio);
-            // lecture en memoire de l'image originale
-            $hires_img = imagecreatefromstring(file_get_contents($hires_file));
-            //creation en memoire d'une image noire des nouvelles dimensions
-            $thumb_img = imagecreatetruecolor($new_width, $new_height);
-
-            // on peut redimensionner ?
-            if (imagecopyresampled($thumb_img, $hires_img, 0, 0, 0, 0, $new_width, $new_height, $width, $height)) {
-                // une erreur lors de l'ecriture du thumbnail ?
-                if (!imagejpeg($thumb_img, $thumb_file)) {
-                    $errors['image'] = 'erreur ecriture thumbnail image';
-                }
-            } else {
-                $errors['image'] = 'erreur generation thumbnail image';
-            }
-        } else {
-            $errors['image'] = 'erreur deplacement fichier image';
+        if($extension == '.csv'){
+            move_uploaded_file($tmp_file, $hires_file);
+        }else {
+            $errors['file'] = 'Votre fichier doit être au format .CSV';
         }
-
-    }*/
+    }
     return $errors;
 }
-
-/*
- * $.post('contact_controller.php', $('#contact_form').serialize())
- *
-if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-
-}
-*/
 
 
 
