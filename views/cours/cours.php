@@ -20,9 +20,12 @@ if (DEBUG) {
     echo("</pre>");
 
 }
+echo('<pre>EXCLUDE ');
 var_dump($postdata);
-$test = implode(",", $postdata['menu']);
-print_r($test);
+echo("</pre>");
+//var_dump($postdata);
+/*$test = implode(",", $postdata['menu']);
+var_dump($test);*/
 ?>
 
 <h1>Votre cours de cuisine du monde</h1>
@@ -57,7 +60,7 @@ print_r($test);
 
 <form method="post" action="mon-cours.php?action=save" enctype="multipart/form-data" id="cours"
       class="form-horizontal">
-
+    <input type="text" name="id" value="82">
     <div class="form-group has-feedback">
         <label for="menu" class="col-xs-2 control-label">Choix du menu</label>
 

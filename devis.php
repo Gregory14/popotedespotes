@@ -54,6 +54,26 @@ if (isset($_GET['action'])){
             header('Content-type: application/json');
             echo(json_encode($states, JSON_FORCE_OBJECT));
         }
+        //Confirmation participation cours
+    }else if ($_GET['action'] == 'validation'){
+        if (isset($_GET['devis'])&&isset($_GET['id'])){
+            // recherche dans la table Réponse les elements avec devis = "$_GET['devis']"
+            //$sql = "select * from devis, cours, reponse where devis.devis =:devis and cours.id =:id and reponse.id_cours =:toto ";
+            $sql = "select mail_collaborateur, reponse, id_cours, id from reponse INNER JOIN cours ON cours.id=:id INNER JOIN devis ON devis.devis =:devis WHERE id_cours=:id_cours ";
+            $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+            $sth->execute(array(
+                ':devis' => $_GET['devis'],
+                ':id' => $_GET['id'],
+                ':id_cours' => $_GET['id']
+            ));
+            $confirmation = $sth -> fetchAll();
+            echo('<pre>Donnée recupérées ');
+            print_r($confirmation);
+            echo("</pre>");
+            // mise en session du contenu de l'element demandé
+            $_SESSION['postdata'] = $confirmation;
+        }
+        render('devis/commande.php');
     //Confirmation commande
     }else if ($_GET['action'] == 'commande'){
         if (isset($_GET['devis'])&&isset($_GET['id'])){
@@ -64,9 +84,12 @@ if (isset($_GET['action'])){
                 ':devis' => $_GET['devis'],
                 ':id' => $_GET['id']
             ));
-            $message = $sth -> fetch();
+            $commande = $sth -> fetch();
+            echo('<pre>Donnée recupérées ');
+            print_r($commande);
+            echo("</pre>");
             // mise en session du contenu de l'element demandé
-            $_SESSION['postdata'] = $message;
+            $_SESSION['postdata'] = $commande;
         }
         render('devis/commande.php');
 
