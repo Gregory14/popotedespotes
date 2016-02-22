@@ -22,9 +22,6 @@ if (DEBUG) {
     echo("</pre>");
 
 }
-//var_dump($postdata);
-/*$test = implode(",", $postdata['menu']);
-print_r($test);*/
 
 ?>
 
@@ -166,7 +163,7 @@ print_r($test);*/
         // on focus
         // do nothing, cleanup awaiting user input
 
-        $('#devis_form input, #devis_form textarea').on('focus', function (e) {
+        $('#cours_form input, #cours_form textarea').on('focus', function (e) {
             e.preventDefault() && e.stopPropagation();
             console.log('focus', this);
             var that = this;
@@ -180,12 +177,12 @@ print_r($test);*/
         // on keyup
         // check if input is Ok via ajax, if not, display a warning in popover
 
-        $('#devis_form input, #devis_form textarea').on('keyup', function (e) {
+        $('#cours_form input, #cours_form textarea').on('keyup', function (e) {
             e.preventDefault() && e.stopPropagation();
             console.log('keyup', this);
             var that = this;
             $.post(
-                'devis.php?action=check',
+                'reservation.php?action=check',
                 $(that).serialize(),
                 function (data) {
                     var inputName = $(that).attr('name');
@@ -199,12 +196,12 @@ print_r($test);*/
         // check if input is Ok via ajax, if not, display a warning under field
         // remove previous popovers
 
-        $('#devis_form input, #devis_form textarea').on('blur', function (e) {
+        $('#cours_form input, #cours_form textarea').on('blur', function (e) {
             e.preventDefault() && e.stopPropagation();
             console.log('blur', this);
             var that = this;
             $.post(
-                'devis.php?action=check',
+                'reservation.php?action=check',
                 $(that).serialize(),
                 function (data) {
                     var inputName = $(that).attr('name');
@@ -215,7 +212,7 @@ print_r($test);*/
         });
 
         // display errors if errors retrieved from PHP form submit
-        $('#devis_form input, #devis_form textarea').each(function () {
+        $('#cours_form input, #cours_form textarea').each(function () {
             var that = this;
             var inputName = $(that).attr('name');
             var errors = phpErrors;
