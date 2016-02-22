@@ -22,76 +22,73 @@ if (DEBUG) {
 }
 print_r($postdata)
 ?>
+<div class="container overlayContainer">
+    <div class="row">
+<h1>Une question ?</h1>
 
-<h1>Un question ?</h1>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor erat eu lorem consequat lobortis. Integer tortor elit, sodales sed rutrum finibus, pellentesque tincidunt ex. In in enim tellus. Aliquam erat volutpat. Sed volutpat viverra urna, nec aliquam orci venenatis sed. Nam gravida blandit nulla, a accumsan quam luctus lacinia. Donec blandit libero sit amet augue ultricies rhoncus.</p>
+<p class="col-lg-8 col-lg-offset-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor erat eu lorem consequat lobortis. Integer tortor elit, sodales sed rutrum finibus, pellentesque tincidunt ex. In in enim tellus. Aliquam erat volutpat. Sed volutpat viverra urna, nec aliquam orci venenatis sed. Nam gravida blandit nulla, a accumsan quam luctus lacinia. Donec blandit libero sit amet augue ultricies rhoncus.</p>
+    </div>
 
 <h2>Contactez-nous</h2>
 
 <form method="post" action="contact.php?action=save" enctype="multipart/form-data" id="contact_form"
       class="form-horizontal">
 
-    <div class="form-group has-feedback">
-        <label for="name" class="col-xs-2 control-label">Nom</label>
+    <div class="has-feedback col-lg-4 col-lg-offset-2">
+        <label for="name" class=" control-label">Nom</label>
 
-        <div class="col-xs-6">
+        <div class="">
             <input type="text" id="nom" name="nom" class="form-control" placeholder="Bob"
                    value="<?php echo !empty($postdata['nom']) ? ($postdata['nom']) : '' ?>">
         </div>
     </div>
 
-    <div class="form-group has-feedback">
-        <label for="prenom" class="col-xs-2 control-label">Prénom</label>
+    <div class="has-feedback col-lg-4">
+        <label for="prenom" class=" control-label">Prénom</label>
 
-        <div class="col-xs-6">
+        <div class="">
             <input type="text" id="prenom" name="prenom" class="form-control" placeholder="Jean"
                    value="<?php echo !empty($postdata['prenom']) ? ($postdata['prenom']) : '' ?>">
         </div>
     </div>
 
-    <div class="form-group has-feedback">
-        <label for="email" class="col-xs-2 control-label">Email</label>
+    <div class="has-feedback col-lg-4 col-lg-offset-2">
+        <label for="email" class=" control-label">Email</label>
 
-        <div class="col-xs-6">
+        <div class="">
             <input type="text" autocomplete="0" id="email" name="email" class="form-control"
-                   placeholder="toto@toto.com"
+                   placeholder="votre mail"
                    value="<?= !empty($postdata['email']) ? ($postdata['email']) : '' ?>">
         </div>
     </div>
 
-    <div class="form-group has-feedback">
-        <label for="fixe" class="col-xs-2 control-label">Téléphone</label>
+    <div class="has-feedback col-lg-4">
+        <label for="fixe" class=" control-label">Téléphone</label>
 
-        <div class="col-xs-6">
+        <div class="">
             <input type="tel" id="telephone" name="telephone" class="form-control" placeholder="0176543975"
                    value="<?php echo !empty($postdata['telephone']) ? ($postdata['telephone']) : '' ?>">
         </div>
     </div>
 
-    <div class="form-group has-feedback">
-        <label for="entreprise" class="col-xs-2 control-label">Entreprise</label>
-
-        <div class="col-xs-6">
+    <div class="has-feedback col-lg-8 col-lg-offset-2">
+        <label for="entreprise" class=" control-label">Entreprise</label>
             <input type="text" id="entreprise" name="entreprise" class="form-control" placeholder="La popote des potes"
                    value="<?php echo !empty($postdata['entreprise']) ? ($postdata['entreprise']) : '' ?>">
-        </div>
     </div>
 
-    <div class="form-group has-feedback">
-        <label for="question" class="col-xs-2 control-label">Votre question</label>
+    <div class="has-feedback col-lg-8 col-lg-offset-2">
+        <label for="question" class=" control-label">Votre question</label>
 
-        <div class="col-xs-6">
             <textarea id="question"
                       name="question"
                       class="form-control"
                       placeholder="un petit message ?"><?= !empty($postdata['question']) ? ($postdata['question']) : '' ?></textarea>
-        </div>
     </div>
-
-    <input type="submit" id="ajax_form_check" class="btn btn-primary" value="Envoyer">
-
+    <div class="col-lg-2 col-lg-offset-8"><input type="submit" id="ajax_form_check" class="btn" value="Envoyer"></div>
 </form>
+
+</div>
 <script>
     var phpErrors = <?php echo (count($errors)?json_encode($errors, JSON_FORCE_OBJECT):'{}') ?>;
 </script>

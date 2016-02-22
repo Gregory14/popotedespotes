@@ -2,7 +2,7 @@
 </main>
 <footer>
     <div class="container">
-        <div class="col-lg-3 col-lg-offset-1 links">
+        <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 links">
             <h4>La popote des potes</h4>
             <ul>
                 <li><a href="">À propos</a></li>
@@ -10,7 +10,7 @@
                 <li><a href="">Devenez partenaire</a></li>
             </ul>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-4 col-sm-4">
             <svg version="1.1" id="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                  viewBox="0 0 471.2 528.7" style="enable-background:new 0 0 471.2 528.7;" xml:space="preserve">
         <g class="hideable">
@@ -101,7 +101,7 @@
                 <polygon class="hideable" points="129,487.3 30.9,515.3 30.9,506.6 129,478.6 "/>
 </svg>
         </div>
-        <div class="col-lg-3 col-lg-offset-1 links">
+        <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 links">
             <h4>Informations</h4>
             <ul>
                 <li><a href="">CGV</a></li>

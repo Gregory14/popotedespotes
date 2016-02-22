@@ -1,0 +1,103 @@
+/*_____TAILLE MEDIUM_______*/
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+        font-size: 0.8em;
+    }
+    main {
+        font-size: 1.6em;
+    }
+    .bottomBar {
+        height:20px;
+    }
+    #ingredients h4::before {
+        margin-top:25px;
+
+    }
+    figure figcaption {
+        margin-left: -210px;
+    }
+    figure figcaption h1 {
+    }
+    #ingredients h4::before {
+        margin-bottom: 15px;
+    }
+    .square, .rectangle {
+        width: 250px;
+        height: 250px;
+        margin-bottom: 10px;
+    }
+    footer .links{
+        display:none;
+    }
+    article.rectangle .details {
+        padding-top: 85%;
+    }
+    .rotatedTitle {
+        text-align: left;
+        -webkit-transform: rotate(0deg) translateX(0px);
+        -moz-transform: rotate(0deg) translateX(0px);
+        -ms-transform: rotate(0deg) translateX(0px);
+        -o-transform: rotate(0deg) translateX(0px);
+        transform: rotate(0deg) translateX(0px);
+        text-align: center;
+    }
+    #partners {
+        background-size: 45%;
+        padding-top: 10px;
+    }
+    #ingredients h4 {
+        margin-bottom: 15px;
+    }
+    }
+@media (min-width: 768px) and (max-width: 992px) {
+    main {
+        font-size: 1.4rem;
+    }
+    #partners {
+        padding-bottom: 80px;
+        background-size: 30%;
+    }
+    #chefs {
+        background-position: 0 120px;
+        padding-bottom: 280px;
+    }
+    .rotatedTitle {
+        transform: rotate(-90deg) translateX(-30px);
+    }
+    .square {
+        width: 210px;
+        height:210px;
+        margin-bottom: 20px;
+    }
+    .rectangle {
+        width: 470px;
+        height: 210px;
+    }
+    article .details {
+        padding-top:82%;
+    }
+    article.rectangle .details {
+        padding-top: 35%;
+    }
+    article .details p {
+        font-size: 1.2rem;
+        line-height: 1.2;
+    }
+
+    #ingredients h4 {
+        font-size: 1.7rem;
+        line-height: 1.4;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+    .square {
+        width:280px;
+        height:280px;
+    }
+
+    .rectangle {
+        width: 610px;
+        height: 280px;
+    }
+}
