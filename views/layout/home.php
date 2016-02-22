@@ -168,7 +168,7 @@ if (DEBUG) {
             <div class="col-lg-4 col-md-4 col-sm-4">
                 <h3 class="rotatedTitle">Vous choisissez à qui vous reversez</h3>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                 <article class="square">
                     <img src="img/homePauvres.jpg">
                     <div class="details">
@@ -178,7 +178,7 @@ if (DEBUG) {
                     </div>
                 </article>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                 <article class="square">
                     <img src="img/homeBanque.jpg">
                     <div class="details">
@@ -191,7 +191,7 @@ if (DEBUG) {
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4">
+            <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-12">
                 <article class="square">
                     <img src="img/homeArmee.jpg">
                     <div class="details">
@@ -201,7 +201,7 @@ if (DEBUG) {
                     </div>
                 </article>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                 <article class="square">
                     <img src="img/homeRestos.jpg">
                     <div class="details">
