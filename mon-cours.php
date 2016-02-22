@@ -54,22 +54,39 @@ if (isset($_GET['action'])){
             header('Content-type: application/json');
             echo(json_encode($states, JSON_FORCE_OBJECT));
         }
+        //Confirmation participation cours
+    }else if ($_GET['action'] == 'validation'){
+        if (isset($_GET['devis'])&&isset($_GET['id'])){
+            // recherche dans la table Réponse les elements avec devis = "$_GET['devis']"
+            //$sql = "select * from devis, cours, reponse where devis.devis =:devis and cours.id =:id and reponse.id_cours =:toto ";
+            $sql = "select * from reponse INNER JOIN cours ON cours.id=:id INNER JOIN devis ON devis.devis =:devis WHERE id_cours=:id_cours ";
+            $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+            $sth->execute(array(
+                ':devis' => $_GET['devis'],
+                ':id' => $_GET['id'],
+                ':id_cours' => $_GET['id']
+            ));
+            $confirmation = $sth -> fetchAll();
+            // mise en session du contenu de l'element demandé
+            $_SESSION['postdata'] = $confirmation;
+        }
+        render('cours/cours.php');
 
     // demande d'edition
     }else if ($_GET['action'] == "edit"){
         // est ce qu'on m'a fourni un id ?
         if (isset($_GET['devis'])){
             // recherche dans la table cours les elements avec id = "$_GET['id']"
-            $sql = "select * from devis where devis =:devis limit 1";
+            $sql = "select * from cours where id =:id limit 1";
             $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
             $sth->execute(array(
-                ':devis' => $_GET['devis']
+                ':id' => $_GET['id']
             ));
             $message = $sth -> fetch();
             // mise en session du contenu de l'element demandé
             $_SESSION['postdata'] = $message;
         }
-        render('devis/form.php');
+        render('cours/cours.php');
 
     // demande de sauvegarde de données saisies dans le form
     }else if ($_GET['action'] == "save"){
@@ -78,20 +95,31 @@ if (isset($_GET['action'])){
 
         // redirection si aucune erreur remontée
         if (count($errors) == 0) {
-
-
+            //Si données sous forme d'array on les transformes en string
+            if (is_array($_POST['menu'])){
+                $menu = implode(',',$_POST['menu']);
+            }
+            if (is_array($_POST['type_cuisine'])){
+                $type_cuisine = implode(',',$_POST['type_cuisine']);
+            }
+            if(is_array($_POST['association'])){
+                $association = implode(',',$_POST['association']);
+            }
+            if(is_array($_POST['contraintes'])){
+                $contraintes = implode(',',$_POST['contraintes']);
+            }
             /* syntaxe avec preparedStatements */
-            $sql = "insert into devis (devis, menu, type_cuisine, association, contraintes) values(:devis, :menu, :type_cuisine, :association, :contraintes)";
+            $sql = "insert into cours (id, menu, type_cuisine, association, contraintes) values(:id, :menu, :type_cuisine, :association, :contraintes)";
             // si l'enregistrement existe on le met a jour.
-            $sql .= " on duplicate key update devi=:devis, menu:menu, type_cuisine=:type_cuisine, association=:association, contraintes=:contraintes";
+            $sql .= " on duplicate key update id=:id, menu=:menu, type_cuisine=:type_cuisine, association=:association, contraintes=:contraintes";
 
             $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
             if($sth->execute(array(
-                ':devis' => $_POST['devis'],
-                ':menu' => $_POST['menu'],
-                ':type_cuisine' => $_POST['type_cuisine'],
-                ':association' => $_POST['association'],
-                ':contraintes' => $_POST['contraintes']
+                ':id' => $_POST['id'],
+                ':menu' => $menu,
+                ':type_cuisine' => $type_cuisine,
+                ':association' => $association,
+                ':contraintes' => $contraintes
             ))){
                 $lastInsertId = $dbh->lastInsertId();
 
@@ -101,14 +129,19 @@ if (isset($_GET['action'])){
 
                 if ($lastInsertId == 0){
                     $_SESSION['usermessage'] = 'Aucune modification';
+                    $id_update = $_POST['id'];
                 }else{
                     $_SESSION['usermessage'] = 'L\'enregistrement N° '. $lastInsertId .' a été enregistré';
+                    $id_update = $lastInsertId;
                 }
 
                 // la on utilise une redirection au lieu d'un render pour empecher un refresh user
                 //header('Location: devis.php');
-                header('Location: devis.php?action=commande&devis='.$postada['devis']);
+                header('Location: devis.php?action=commande&id='.$id_update);
             }else{
+                //Convertir les chaines de caractère en array
+                $menu2 = explode(',',$menu);
+
                 $errors['SQL'] = 'dla merde';
                 // si ca marcha pas on mets les errors et les champs fournis par $_POST en session
                 $_SESSION['errors'] = $errors;
@@ -131,7 +164,7 @@ if (isset($_GET['action'])){
 // pas d'action donc affichage de liste
 }else{
     //requete qui doit retourner tous les resultats de la base
-    $results = $dbh->query("select * from devis");
+    $results = $dbh->query("select * from cours");
     // recupere les messages dans le connecteur
     $messages = $results->fetchAll();
     // mise en session des messages et redirection

@@ -113,9 +113,9 @@
     <nav id="main-menu">
 
         <ul>
-            <li><a href="">Préparez votre popote</a></li>
+            <li><a href="reservation.php">Préparez votre popote</a></li>
             <li><a href="">Devenez partenaire</a></li>
-            <li><a href="">Contactez-nous</a></li>
+            <li><a href="contact.php">Contactez-nous</a></li>
         </ul>
     </nav>
 
@@ -135,7 +135,7 @@ $_SESSION['usermessage'] = '';
     <figcaption>
         <h1>Cuisinez éthique</h1>
         <h2>Fédérez vos équipes autour d’une cause</h2>
-        <a href="" class="btn">Créez votre team building autrement</a>
+        <a href="reservation.php" class="btn">Créez votre team building autrement</a>
     </figcaption>
 
 </figure>

@@ -1,5 +1,5 @@
 <?php
-//$postdata = [];
+$postdata = [];
 if (isset($_SESSION['postdata'])) {
     $postdata = $_SESSION['postdata'];
     $_SESSION['postdata'] = [];
@@ -20,14 +20,13 @@ if (DEBUG) {
     echo("</pre>");
 
 }
-var_dump($postdata);
 ?>
 
 <h1>Merci pour votre commande</h1>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non lectus imperdiet, facilisis magna porttitor, vulputate magna. Nam sodales, orci et finibus dapibus, purus nisi sodales nunc, nec porttitor purus nibh at dui. Nunc suscipit, eros quis egestas vestibulum, massa dolor euismod neque, at tincidunt erat nunc et nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
 <div>
-    <a href="#" class="btn btn-primary">Télécharger le devis</a>
+    <a href="download.php" class="btn btn-primary">Télécharger le devis</a>
 </div>
 
 <div>
@@ -68,14 +67,35 @@ var_dump($postdata);
         <tr>
             <td><?php echo ($postdata['offre']);?></td>
             <td><?php echo ($postdata['menu']);?></td>
-            <td><?php echo ($postdata['id']);?></td>
+            <td><?php echo ($postdata['type_cuisine']);?></td>
             <td><?php echo ($postdata['lieu']);?></td>
             <td><?php echo ($postdata['date']);?></td>
-            <td><?php echo ($postdata['id']);?></td>
+            <td><?php echo ($postdata['association']);?></td>
         </tr>
     </table>
     <div>
-        <p>Prix HT : </p>
+        <?php
+        $startPrice = 150;
+        $prixHT;
+        $nbr_participant;
+        $max_participant = intval($postdata['offre']);
+        if ($max_participant == 0 OR $max_participant < 0){
+            $prixHT = 'Une erreur s\'est produite. Merci de nous contacter';
+        }
+        elseif ($max_participant > 0 AND $max_participant < 11){
+            $prixHT = $startPrice;
+        }
+        elseif ($max_participant > 10 AND $max_participant < 21){
+            $prixHT = $startPrice * 2;
+        }
+        elseif ($max_participant > 20 AND $max_participant < 31){
+            $prixHT = $startPrice * 3;
+        }
+        else{
+            $prixHT = $startPrice * 4;
+        } var_dump($max_participant);
+        ?>
+        <p>Prix HT : <?php echo ($prixHT);?></p>
     </div>
 </div>
 
