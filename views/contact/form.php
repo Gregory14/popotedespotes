@@ -62,10 +62,10 @@ if (DEBUG) {
     </div>
 
     <div class="has-feedback col-lg-4">
-        <label for="fixe" class=" control-label">Téléphone</label>
+        <label for="telephone" class=" control-label">Téléphone</label>
 
         <div class="">
-            <input type="tel" id="telephone" name="telephone" class="form-control" placeholder="0176543975"
+            <input type="text" id="telephone" name="telephone" class="form-control" placeholder="0176543975"
                    value="<?php echo !empty($postdata['telephone']) ? ($postdata['telephone']) : '' ?>">
         </div>
     </div>

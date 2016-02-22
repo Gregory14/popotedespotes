@@ -55,7 +55,7 @@ if (isset($_GET['action'])){
             mail($to,$subject,$txt,$headers);
 
             // la on utilise une redirection au lieu d'un render pour empecher un refresh user
-            header('Location: devis.php?action=merci');
+            header('Location: contact.php?action=merci');
         }else{
             $errors['SQL'] = 'dla merde';
             // si ca marcha pas on mets les errors et les champs fournis par $_POST en session
@@ -149,9 +149,9 @@ function checkFields($postdata, $filedata)
         if (empty($postdata['telephone'])) {
             $errors['telephone'] = 'champ téléphone vide';
             // si longueur > 10 chars
-        } else if (!is_numeric($postdata['fixe'])) {
+        } else if (!is_numeric($postdata['telephone'])) {
             $errors['telephone'] = 'champ telephone doit comporter uniquement des chiffres';
-        } else if (mb_strlen($postdata['fixe']) > 10) {
+        } else if (mb_strlen($postdata['telephone']) > 10) {
             $errors['telephone'] = 'Numéro invalide (10max)';
         }
     }
