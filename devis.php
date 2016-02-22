@@ -109,11 +109,14 @@ if (isset($_GET['action'])){
     // demande de sauvegarde de données saisies dans le form
     }else if ($_GET['action'] == "save"){
         // verification des champs, ne traite que les champs fournis
-        $errors = checkFields($_POST/*, $_FILES*/);
+        $errors = checkFields($_POST, $_FILES);
 
         // redirection si aucune erreur remontée
         if (count($errors) == 0) {
 
+            // Test de vérification des fichiers
+            $hires_filename = !empty($_POST['hires'])?$_POST['hires']:'';
+            $filedata = $_FILES;
 
             /* syntaxe avec preparedStatements */
             $sql = "insert into devis (devis, entreprise, secteur, dimension, siret, adresse, cp, ville, nom, prenom, poste, email, fixe, mobile, message) values(:devis, :entreprise, :secteur, :dimension, :siret, :adresse, :cp, :ville, :nom, :prenom, :poste, :email, :fixe, :mobile, :message)";
