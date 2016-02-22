@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -5,6 +6,8 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
     <script src="js/jquery-2.2.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/moment.js"></script>
@@ -12,9 +15,10 @@
     <script src="js/scripts.js"></script>
 </head>
 
-<body>
+<body class="simpleHeader">
 <header>
-    <svg version="1.1" id="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    <svg version="1.1" id="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+         y="0px"
          viewBox="0 0 471.2 528.7" style="enable-background:new 0 0 471.2 528.7;" xml:space="preserve">
         <g class="hideable">
             <path class="st0" d="M51.8,341.1c0,3.5-2,5.5-5.5,5.5h-10c-3.5,0-5.5-2-5.5-5.5V186.2c0-3.5,2-5.5,5.5-5.5h37.9
@@ -78,7 +82,8 @@
                 <path class="st1" d="M40.3,156.1l8.9-58.5l-16.4-3.1L35.8,76c0,0,20,3.4,37.7,4.2s37.9-0.7,37.9-0.7l1.2,18.6L96,99.7l3.4,59.1
 			l-21.3-1l-6.5-36.6l-9.9,35.8L40.3,156.1z"/>
 
-                <ellipse transform="matrix(4.669125e-02 -0.9989 0.9989 4.669125e-02 11.0716 131.4764)" class="st1" cx="74.4" cy="59.9" rx="16.7" ry="16.7"/>
+                <ellipse transform="matrix(4.669125e-02 -0.9989 0.9989 4.669125e-02 11.0716 131.4764)" class="st1"
+                         cx="74.4" cy="59.9" rx="16.7" ry="16.7"/>
             </g>
             <g>
                 <path class="st1" d="M117.1,159l6.2-58.9l-16.5-2.3l2-18.5c0,0,20.1,2.5,37.8,2.5s37.8-2.5,37.8-2.5l2,18.5l-16.5,2.3l6.2,58.9
@@ -105,24 +110,23 @@
 </svg>
 
 
-
     <nav id="main-menu">
 
-            <ul>
-                <li><a href="">Préparez votre popote</a></li>
-                <li><a href="">Devenez partenaire</a></li>
-                <li><a href="">Contactez-nous</a></li>
-            </ul>
-        </nav>
+        <ul>
+            <li><a href="">Préparez votre popote</a></li>
+            <li><a href="">Devenez partenaire</a></li>
+            <li><a href="">Contactez-nous</a></li>
+        </ul>
+    </nav>
 
-        <div class="menu-icon"><span></span></div>
+    <div class="menu-icon"><span></span></div>
 </header>
 
 
 <!--hr>
 <?php
-    echo(!empty($_SESSION['usermessage']) ? ($_SESSION['usermessage']) : '');
-    $_SESSION['usermessage'] = '';
+echo(!empty($_SESSION['usermessage']) ? ($_SESSION['usermessage']) : '');
+$_SESSION['usermessage'] = '';
 ?>
 <hr-->
 
@@ -135,3 +139,7 @@
     </figcaption>
 
 </figure>
+
+<div class="bottomBar"></div>
+
+<main>

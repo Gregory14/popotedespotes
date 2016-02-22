@@ -28,11 +28,14 @@ print_r($test);*/
 
 ?>
 
+<div class="container overlayContainer">
+    <div class="row">
 <h1>Réserver une session</h1>
-
+        <p class="col-lg-8 col-lg-offset-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor erat eu lorem consequat lobortis. Integer tortor elit, sodales sed rutrum finibus, pellentesque tincidunt ex. In in enim tellus. Aliquam erat volutpat. Sed volutpat viverra urna, nec aliquam orci venenatis sed. Nam gravida blandit nulla, a accumsan quam luctus lacinia. Donec blandit libero sit amet augue ultricies rhoncus.</p>
+    </div>
 
 <form method="post" action="reservation.php?action=save" enctype="multipart/form-data" id="cours_form"
-      class="form-horizontal">
+      class="form-horizontal col-lg-8 col-lg-offset-2">
     <?php
     if (isset($postdata) && isset($postdata['id']) && !empty($postdata['id']) ){
         print_r($postdata);
@@ -42,28 +45,28 @@ print_r($test);*/
     }
     ?>
     <div class="form-group has-feedback">
-        <label for="offre" class="col-xs-2 control-label">Nombre de participant</label>
+        <label for="offre" class="col-lg-12 control-label">Nombre de participant</label>
 
-        <div class="col-xs-6">
-            <label class="col-xs-3">
+        <div class="">
+            <label class="">
                 <input type="radio" id="offre1" name="offre" value="offre1"
                 <?php if (isset($postdata['offre']) && $postdata['offre']=='offre1') {echo 'checked';} ?>
                 > Jusqu'à 10 personnes
             </label>
 
-            <label class="col-xs-3">
+            <label class="">
                 <input type="radio" id="offre2" name="offre" value="offre2"
                     <?php if (isset($postdata['offre']) && $postdata['offre']=='offre2') {echo 'checked';} ?>
                 > Entre 10 et 19 personnes
             </label>
 
-            <label class="col-xs-3">
+            <label class="">
                 <input type="radio" id="offre3" name="offre" value="offre3"
                     <?php if (isset($postdata['offre']) && $postdata['offre']=='offre3') {echo 'checked';} ?>
                 > Entre 20 et 29 personnes
             </label>
 
-            <label class="col-xs-3">
+            <label class="">
                 <input type="radio" id="offre4" name="offre" value="offre4"
                     <?php if (isset($postdata['offre']) && $postdata['offre']=='offre4') {echo 'checked';} ?>
                 > Plus de 30 personnes
@@ -73,16 +76,16 @@ print_r($test);*/
 
 
     <div class="form-group has-feedback">
-        <label for="lieu" class="col-xs-2 control-label">Où cuisiner ?</label>
+        <label for="lieu" class="col-lg-12 control-label">Où cuisiner ?</label>
 
-        <div class="col-xs-6">
-            <label class="col-xs-6">
+        <div class="">
+            <label class="">
                 <input type="radio" id="lieu1" name="lieu" value="lieu1"
                     <?php if (isset($postdata['lieu']) && $postdata['lieu']=='lieu1') {echo 'checked';} ?>
                 > Nous avons des locaux
             </label>
 
-            <label class="col-xs-6">
+            <label class="">
                 <input type="radio" id="lieu2" name="lieu" value="lieu2"
                     <?php if (isset($postdata['lieu']) && $postdata['lieu']=='lieu2') {echo 'checked';} ?>
                 > Nous avons besoins d'un lieu
@@ -91,12 +94,12 @@ print_r($test);*/
     </div>
 
     <div class="form-group has-feedback">
-        <label for="date" class="col-xs-2 control-label">Date</label>
+        <label for="date" class=" control-label">Date</label>
 
         <div style="overflow: hidden;">
             <div class="form-group">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-lg-12">
                         <div id="datetimepicker1"><input type='text' name="date" class="collapse" value="<?php if (isset($postdata['date']) && !empty($postdata['date'])) {echo $postdata['date'];} ?>"/></div>
                     </div>
                 </div>
@@ -105,9 +108,10 @@ print_r($test);*/
 
     </div>
 
-    <input type="submit" id="ajax_form_check" class="btn btn-primary" value="Recevoir un devis">
+    <input type="submit" id="ajax_form_check" class="btn" value="Recevoir un devis">
 
 </form>
+    </div>
 <script>
     var phpErrors = <?php echo (count($errors)?json_encode($errors, JSON_FORCE_OBJECT):'{}') ?>;
 </script>

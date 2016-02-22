@@ -1,8 +1,47 @@
+/*_________FONT FACE___________*/
+
+@font-face {
+    font-family: 'AvenirDemi';
+    src: url('../fonts/AvenirNext-DemiBold.eot');
+    src: url('../fonts/AvenirNext-DemiBold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AvenirNext-DemiBold.woff') format('woff'),
+    url('../fonts/AvenirNext-DemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('../fonts/AvenirNext-Regular.eot');
+    src: url('../fonts/AvenirNext-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AvenirNext-Regular.woff') format('woff'),
+    url('../fonts/AvenirNext-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AvenirMedium';
+    src: url('../fonts/AvenirNext-Medium.eot');
+    src: url('../fonts/AvenirNext-Medium.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AvenirNext-Medium.woff') format('woff'),
+    url('../fonts/AvenirNext-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
 /*_______STYLE GENERAL_______*/
 
 body {
     padding:40px;
     background-color:white;
+    font-family: 'Avenir', sans-serif;
+}
+main{
+    font-size:1.6rem;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    background: #FDFCFC;
 }
 li {
     list-style:none;
@@ -14,6 +53,11 @@ li {
     color:white;
     border-radius:0;
     padding: 12px 17px;
+    transition:all ease-in 0.2s;
+}
+.btn:hover {
+    color:white;
+    background-color: #D9534A;
 }
 section {
     text-align:center;
@@ -22,6 +66,8 @@ section {
 section h3 {
     margin-bottom: 45px;
     text-transform: uppercase;
+    font-family: 'AvenirMedium',sans-serif;
+    letter-spacing: 4px;
 }
 
 .square {
@@ -57,6 +103,14 @@ article img {
     min-width: 100%;
 }
 
+article.rectangle .details {
+    padding-top: 37%;
+}
+
+article.rectangle:hover .details {
+    padding-top: 2%;
+}
+
 article .details {
     position: absolute;
     height: 100%;
@@ -64,16 +118,53 @@ article .details {
     top: 0;
     width: 100%;
     color: white;
-    -webkit-transition: all ease-in 0.2s;
-    -moz-transition: all ease-in 0.2s ;
-    -ms-transition: all ease-in 0.2s ;
-    -o-transition: all ease-in 0.2s ;
-    transition: all ease-in 0.2s ;
+    -webkit-transition: all cubic-bezier(1, 0.04, 0.12, 1.01) 0.4s;
+    -moz-transition: all cubic-bezier(1, 0.04, 0.12, 1.01) 0.4s;
+    -ms-transition: all cubic-bezier(1, 0.04, 0.12, 1.01) 0.4s;
+    -o-transition: all cubic-bezier(1, 0.04, 0.12, 1.01) 0.4s;
+    transition: all cubic-bezier(1, 0.04, 0.12, 1.01) 0.4s;
 }
 
+article .details h4 {
+    font-family: 'AvenirMedium', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+article .details p {
+    font-size: 1.4rem;
+    margin-top: 30px;
+    padding: 0 10px;
+}
 article:hover .details{
     padding-top:5%;
     background:rgba(0,0,0,0.5);
+}
+
+.bottomBar {
+    width:100%;
+    height:40px;
+    bottom:0;
+    left:0;
+    background-color:white;
+    z-index:10;
+    position:fixed;
+}
+
+/*__________FORMULAIRES__________*/
+
+.form-control {
+    border-radius:0;
+    border: 1px solid #F37168;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    resize:none;
+    padding-top:25px;
+    padding-bottom: 25px;
+}
+textarea.form-control {
+    height:200px;
 }
 /*_______HEADER_______*/
 
@@ -84,7 +175,7 @@ header {
     left: 40px;
     background: transparent;
     z-index: 10;
-    padding: 20px;
+    padding: 10px;
 }
 header.fixedHeader {
     position:fixed;
@@ -93,20 +184,17 @@ header.fixedHeader {
 header.fixedHeader.whiteHeader {
     background-color:white;
     height:40px;
+    padding: 2px 10px;
 }
 header.fixedHeader.whiteHeader svg {
     fill:#F37168;
-    -webkit-transform: translateY(-18px);
-    -moz-transform: translateY(-18px);
-    -ms-transform: translateY(-18px);
-    -o-transform: translateY(-18px);
-    transform: translateY(-18px);
+
     transition: transform ease-in 0.1s;
     transition: fill ease-in 0.2s;
 }
 
 header.fixedHeader.whiteHeader .menu-icon {
-    transform:translateY(-14px);
+
 }
 header.fixedHeader.whiteHeader .hideable {
     display:none;
@@ -125,12 +213,33 @@ header svg {
 header nav {
     float:right;
     display: none;
+    -webkit-transition: all ease-in 0.2s;
+    -moz-transition: all ease-in 0.2s;
+    -ms-transition: all ease-in 0.2s;
+    -o-transition: all ease-in 0.2s;
+    transition: all ease-in 0.2s;
+    margin-top:30px;
+}
+header nav a {
+    color:black;
+}
+header.fixedHeader.whiteHeader nav {
+    margin-top:43px;
+}
+header nav.visible {
+    display:block;
+}
+header nav li {
+    background-color: white;
+    padding: 10px 12px;
+    margin-bottom: 5px;
+    text-align: center;
 }
 header .menu-icon {
     cursor: pointer;
     position: absolute;
-    top: 30px;
-    right: 20px;
+    top: 15px;
+    right: 15px;
 }
 header .menu-icon span{
     width: 35px;
@@ -171,18 +280,34 @@ figure figcaption {
     position: absolute;
     color: white;
     left: 50%;
-    margin-left: -350px;
+    margin-left: -297px;
     top: 50%;
-    margin-top: -60px;
+    margin-top: -192px;
     text-align: center;
     text-transform: uppercase;
 }
+
+figure figcaption h1 {
+    font-family: 'AvenirDemi', sans-serif;
+    font-size: 4em;
+    letter-spacing: 5px;
+}
+
+figure figcaption h2 {
+    letter-spacing: 5px;
+    font-size: 1.3em;
+    transform: translateY(-16px);
+}
+
 figure figcaption .btn {
     margin-top:210px;
 }
 
 /*_______SECTION RECETTE_______*/
-
+#recette {
+    padding-top:80px;
+    margin-top:0px;
+}
 
 
 /*_______SECTION INGREDIENTS_______*/
@@ -205,10 +330,27 @@ figure figcaption .btn {
 #ingredients .row:first-child > div:nth-child(4) h4:before {
     content:url(../img/marmitte.png);
 }
-#ingredients .row:nth-child(2) {
-    margin-top:60px;
+#ingredients .row:first-child {
+    margin-bottom:106px;
 }
 
+#ingredients .row.ctaContainer {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    margin-top: -46px;
+    z-index: 11;
+}
+#ingredients .row.ctaContainer.ctaFixed {
+    position: fixed;
+    bottom: 16px;
+    margin: 0;
+}
+
+#ingredients .row.ctaContainer.ctaFixed.bottomFixed {
+    position:absolute;
+}
 /*_______SECTION PARTENAIRES_______*/
 
 #partners {
@@ -228,8 +370,12 @@ figure figcaption .btn {
 
 /*_______SECTION D'ASSO_______*/
 
+#associations .row > div {
+    margin-bottom: 60px;
+}
 #associations {
     margin-top: -120px;
+    padding-bottom:100px;
 }
 #associations article {
     background-color: white;
@@ -248,10 +394,50 @@ footer {
     background-size: 25%;
     text-align: center;
     padding: 50px 0;
-    margin-top:100px;
 }
 
 footer svg {
     width:200px;
     fill:white;
+}
+
+footer .links {
+    text-align:left;
+    padding-top:60px;
+    letter-spacing: 1px;
+}
+
+footer .links h4 {
+    text-transform: uppercase;
+    font-family: 'AvenirMedium', sans-serif;
+}
+footer .links a {
+    color: black;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/*_______PAGE CONTACT_______*/
+
+.overlayContainer {
+    margin-top: -50%;
+    background-color: white;
+    position: relative;
+    text-align: center;
+    padding:60px 20px;
+}
+
+#contact_form .has-feedback{
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+#contact_form .btn {
+    width:100%;
+}
+
+/*_______PAGE RERSEVER SESSION_____*/
+
+#cours_form .control-label{
+    text-align:center;
 }

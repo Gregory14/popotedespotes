@@ -20,7 +20,7 @@ if (DEBUG) {
 
     echo('<pre>$_GET ');
     print_r($_GET);
-    echo("</pre>");
+    echo("zizou</pre>");
 
     echo('<pre>$_POST ');
     print_r($_POST);
@@ -44,6 +44,9 @@ $_SESSION['postdata'] = [];
 // liste des erreurs
 $_SESSION['errors'] = [];
 
+render('layout/home.php');
+//render('contact/form.php');
+//render('cours/form.php');
 
 // si une action est demandée
 if (isset($_GET['action'])){
