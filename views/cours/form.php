@@ -46,26 +46,26 @@ if (DEBUG) {
 
         <div class="">
             <label class="">
-                <input type="radio" id="offre1" name="offre" value="offre1"
-                <?php if (isset($postdata['offre']) && $postdata['offre']=='offre1') {echo 'checked';} ?>
+                <input type="radio" id="offre1" name="offre" value="10"
+                <?php if (isset($postdata['offre']) && $postdata['offre']=='10') {echo 'checked';} ?>
                 > Jusqu'à 10 personnes
             </label>
 
             <label class="">
-                <input type="radio" id="offre2" name="offre" value="offre2"
-                    <?php if (isset($postdata['offre']) && $postdata['offre']=='offre2') {echo 'checked';} ?>
+                <input type="radio" id="offre2" name="offre" value="20"
+                    <?php if (isset($postdata['offre']) && $postdata['offre']=='20') {echo 'checked';} ?>
                 > Entre 10 et 19 personnes
             </label>
 
             <label class="">
-                <input type="radio" id="offre3" name="offre" value="offre3"
-                    <?php if (isset($postdata['offre']) && $postdata['offre']=='offre3') {echo 'checked';} ?>
+                <input type="radio" id="offre3" name="offre" value="30"
+                    <?php if (isset($postdata['offre']) && $postdata['offre']=='30') {echo 'checked';} ?>
                 > Entre 20 et 29 personnes
             </label>
 
             <label class="">
-                <input type="radio" id="offre4" name="offre" value="offre4"
-                    <?php if (isset($postdata['offre']) && $postdata['offre']=='offre4') {echo 'checked';} ?>
+                <input type="radio" id="offre4" name="offre" value="31"
+                    <?php if (isset($postdata['offre']) && $postdata['offre']=='31') {echo 'checked';} ?>
                 > Plus de 30 personnes
             </label>
         </div>

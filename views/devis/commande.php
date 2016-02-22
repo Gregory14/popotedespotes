@@ -20,7 +20,6 @@ if (DEBUG) {
     echo("</pre>");
 
 }
-var_dump($postdata);
 ?>
 
 <h1>Merci pour votre commande</h1>

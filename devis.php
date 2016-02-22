@@ -85,9 +85,6 @@ if (isset($_GET['action'])){
                 ':id' => $_GET['id']
             ));
             $commande = $sth -> fetch();
-            echo('<pre>Donnée recupérées ');
-            print_r($commande);
-            echo("</pre>");
             // mise en session du contenu de l'element demandé
             $_SESSION['postdata'] = $commande;
         }
