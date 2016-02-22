@@ -59,7 +59,7 @@ if (isset($_GET['action'])){
         if (isset($_GET['devis'])&&isset($_GET['id'])){
             // recherche dans la table Réponse les elements avec devis = "$_GET['devis']"
             //$sql = "select * from devis, cours, reponse where devis.devis =:devis and cours.id =:id and reponse.id_cours =:toto ";
-            $sql = "select mail_collaborateur, reponse, id_cours, id from reponse INNER JOIN cours ON cours.id=:id INNER JOIN devis ON devis.devis =:devis WHERE id_cours=:id_cours ";
+            $sql = "select * from reponse INNER JOIN cours ON cours.id=:id INNER JOIN devis ON devis.devis =:devis WHERE id_cours=:id_cours ";
             $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
             $sth->execute(array(
                 ':devis' => $_GET['devis'],

@@ -16,23 +16,6 @@ function render($view){
 }
 
 
-if (DEBUG) {
-
-    echo('<pre>$_GET ');
-    print_r($_GET);
-    echo("</pre>");
-
-    echo('<pre>$_POST ');
-    print_r($_POST);
-    echo("</pre>");
-
-    echo('<pre>$_FILES ');
-    print_r($_FILES);
-    echo("</pre>");
-
-}
-
-
 //----------------------------------------------------------------------------------------------------------------------
 /* LOGIQUE DU CONTROLLER */
 
@@ -54,104 +37,45 @@ if (isset($_GET['action'])){
             header('Content-type: application/json');
             echo(json_encode($states, JSON_FORCE_OBJECT));
         }
-    //Confirmation commande
-    }else if ($_GET['action'] == 'commande'){
-        if (isset($_GET['devis'])&&isset($_GET['id'])){
-            // recherche dans la table devis les elements avec devis = "$_GET['devis']"
-            $sql = "select * from devis, cours where devis.devis =:devis and cours.id =:id limit 1";
-            $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-            $sth->execute(array(
-                ':devis' => $_GET['devis'],
-                ':id' => $_GET['id']
-            ));
-            $message = $sth -> fetch();
-            // mise en session du contenu de l'element demandé
-            $_SESSION['postdata'] = $message;
-        }
-        render('devis/commande.php');
-
-    // demande d'edition
-    }else if ($_GET['action'] == "edit"){
-        // est ce qu'on m'a fourni un id ?
-        if (isset($_GET['devis'])){
-            // recherche dans la table cours les elements avec id = "$_GET['id']"
-            $sql = "select * from devis where devis =:devis limit 1";
-            $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-            $sth->execute(array(
-                ':devis' => $_GET['devis']
-            ));
-            $message = $sth -> fetch();
-            // mise en session du contenu de l'element demandé
-            $_SESSION['postdata'] = $message;
-        }
-        render('devis/form.php');
 
     // demande de sauvegarde de données saisies dans le form
     }else if ($_GET['action'] == "save"){
         // verification des champs, ne traite que les champs fournis
-        $errors = checkFields($_POST/*, $_FILES*/);
+        $errors = checkFields($_POST);
 
         // redirection si aucune erreur remontée
         if (count($errors) == 0) {
 
+            //On envoi le mail à la TEAM de la Popote des Potes
+            $to = "gregory.joly.14@gmail.com";
+            $subject = "[SITE] // Nouvelle demande de contact";
+            $txt = $_POST['question'];
+            $headers = "From: ".$_POST['email'] . "\r\n";
 
-            /* syntaxe avec preparedStatements */
-            $sql = "insert into devis (devis, entreprise, secteur, dimension, siret, adresse, cp, ville, nom, prenom, poste, email, fixe, mobile, message) values(:devis, :entreprise, :secteur, :dimension, :siret, :adresse, :cp, :ville, :nom, :prenom, :poste, :email, :fixe, :mobile, :message)";
-            // si l'enregistrement existe on le met a jour.
-            $sql .= " on duplicate key update devis=:devis, entreprise=:entreprise, secteur=:secteur, dimension=:dimension, siret=:siret, adresse=:adresse, cp=:cp, ville=:ville, nom=:nom, prenom=:prenom, poste=:poste, email=:email, fixe=:fixe, mobile=:mobile, message=:message";
+            mail($to,$subject,$txt,$headers);
 
-            $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-            if($sth->execute(array(
-                ':devis' => $_POST['devis'],
-                ':entreprise' => $_POST['entreprise'],
-                ':secteur' => $_POST['secteur'],
-                ':dimension' => $_POST['dimension'],
-                ':siret' => $_POST['siret'],
-                ':adresse' => $_POST['adresse'],
-                ':cp' => $_POST['cp'],
-                ':ville' => $_POST['ville'],
-                ':nom' => $_POST['nom'],
-                ':prenom' => $_POST['prenom'],
-                ':poste' => $_POST['poste'],
-                ':email' => $_POST['email'],
-                ':fixe' => $_POST['fixe'],
-                ':mobile' => $_POST['mobile'],
-                ':message' => $_POST['message']
-            ))){
-                $lastInsertId = $dbh->lastInsertId();
-
-                // si l'element n'existait pas, $lastInsertId => nouvel Id
-                // si l'element existait et a été modifié, $lastInsertId => Id de l'element
-                // si l'element existait et aucun champ n'a été modifié $lastInsertId => 0
-
-                if ($lastInsertId == 0){
-                    $_SESSION['usermessage'] = 'Aucune modification';
-                }else{
-                    $_SESSION['usermessage'] = 'L\'enregistrement N° '. $lastInsertId .' a été enregistré';
-                }
-
-                // la on utilise une redirection au lieu d'un render pour empecher un refresh user
-                //header('Location: devis.php');
-                header('Location: devis.php?action=commande&devis='.$postada['devis']);
-            }else{
-                $errors['SQL'] = 'dla merde';
-                // si ca marcha pas on mets les errors et les champs fournis par $_POST en session
-                $_SESSION['errors'] = $errors;
-                $_SESSION['postdata'] = $_POST;
-
-                render('contact/form.php');
-            }
-
-
-        // redirection si des erreurs sont remontées
-        } else {
+            // la on utilise une redirection au lieu d'un render pour empecher un refresh user
+            header('Location: devis.php?action=merci');
+        }else{
+            $errors['SQL'] = 'dla merde';
             // si ca marcha pas on mets les errors et les champs fournis par $_POST en session
             $_SESSION['errors'] = $errors;
             $_SESSION['postdata'] = $_POST;
 
             render('contact/form.php');
         }
+
+        }elseif($_GET['action'] == "merci"){
+            render('contact/merci.php');
     }
+        // redirection si des erreurs sont remontées
+        else {
+            // si ca marcha pas on mets les errors et les champs fournis par $_POST en session
+            $_SESSION['errors'] = $errors;
+            $_SESSION['postdata'] = $_POST;
+
+            render('contact/form.php');
+        }
 
 // pas d'action donc affichage de liste
 }else{

@@ -20,7 +20,6 @@ if (DEBUG) {
     echo("</pre>");
 
 }
-print_r($postdata)
 ?>
 <div class="container overlayContainer">
     <div class="row">

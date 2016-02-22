@@ -20,12 +20,6 @@ if (DEBUG) {
     echo("</pre>");
 
 }
-echo('<pre>EXCLUDE ');
-var_dump($postdata);
-echo("</pre>");
-//var_dump($postdata);
-/*$test = implode(",", $postdata['menu']);
-var_dump($test);*/
 ?>
 
 <h1>Votre cours de cuisine du monde</h1>
