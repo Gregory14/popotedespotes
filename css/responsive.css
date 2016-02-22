@@ -4,20 +4,33 @@
         padding: 20px;
         font-size: 0.8em;
     }
+    header {
+        width: calc(100% - 40px);
+        left: 20px;
+    }
     main {
         font-size: 1.6em;
+    }
+    footer {
+        padding: 10px 0;
+    }
+    footer svg {
+        width:120px;
     }
     .bottomBar {
         height:20px;
     }
     #ingredients h4::before {
         margin-top:25px;
-
     }
     figure figcaption {
-        margin-left: -210px;
+        width: 90%;
+        text-align: center;
+        margin: -192px 5% 0 5%;
+        left: 0;
     }
-    figure figcaption h1 {
+    figure .btn {
+        white-space: normal;
     }
     #ingredients h4::before {
         margin-bottom: 15px;
@@ -25,7 +38,7 @@
     .square, .rectangle {
         width: 250px;
         height: 250px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
     footer .links{
         display:none;
@@ -48,6 +61,12 @@
     }
     #ingredients h4 {
         margin-bottom: 15px;
+    }
+
+    #associations .row > div {
+        display:table;
+    }
+    #associations .row > div article {width:100%;
     }
     }
 @media (min-width: 768px) and (max-width: 992px) {
