@@ -114,6 +114,6 @@ if (DEBUG) {
             format: 'YYYY-MM-DD',
             minDate: 'moment'
         });
-    }
+    });
 
 </script>
