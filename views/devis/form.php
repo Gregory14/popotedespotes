@@ -164,7 +164,7 @@ if (DEBUG) {
         <label for="portable" class="col-xs-2 control-label">Portable</label>
 
         <div class="col-xs-6">
-            <input type="tel" id="mobile" name="mobile" class="form-control" placeholder="i.e : Paul"
+            <input type="tel" id="mobile" name="mobile" class="form-control" placeholder="i.e : 04568758"
                    value="<?php echo !empty($postdata['mobile']) ? ($postdata['mobile']) : '' ?>">
         </div>
     </div>
@@ -184,15 +184,9 @@ if (DEBUG) {
         <label for="file" class="col-xs-2 control-label">Importez les mail de vos collaborateurs invités</label>
 
         <div class="col-xs-6">
-            <input type="file" id="image" name="file" class="form-control"
+            <input type="file" id="file" name="file" class="form-control"
                    placeholder="Fichier .CSV">
-            <?php
-            if (!empty($postdata['thumb'])) {
-                ?>
-                <input type="hidden" name="hires" id="hires" value="<?php echo $postdata['hires'] ?>">
-                <?php
-            }
-            ?>
+                <input type="hidden" name="file_send" id="file_send" value="<?php echo $postdata['file'] ?>">
         </div>
     </div>
 

@@ -115,13 +115,22 @@ if (isset($_GET['action'])){
         if (count($errors) == 0) {
 
             // Test de vérification des fichiers
-            $hires_filename = !empty($_POST['hires'])?$_POST['hires']:'';
+            $fileToSend = !empty($_POST['file_send'])?$_POST['file_send']:'';
             $filedata = $_FILES;
+            if (isset($filedata["file"]) && isset($filedata["file"]['name']) && !empty($filedata["file"]['name'])) {
+
+                $hires_filename = basename($filedata["file"]["name"]);
+                // pathinfo permet de retrouver l'extension en fonction d'un chemin de fichier complet
+                $hires_info = pathinfo($hires_filename);
+                // on recupere le nom de fichier sans l'extension
+                // et nomme le thumbnail en tant que jpeg
+                $thumb_filename = $hires_info['filename'] . '.csv';
+            }
 
             /* syntaxe avec preparedStatements */
-            $sql = "insert into devis (devis, entreprise, secteur, dimension, siret, adresse, cp, ville, nom, prenom, poste, email, fixe, mobile, message) values(:devis, :entreprise, :secteur, :dimension, :siret, :adresse, :cp, :ville, :nom, :prenom, :poste, :email, :fixe, :mobile, :message)";
+            $sql = "insert into devis (devis, entreprise, secteur, dimension, siret, adresse, cp, ville, nom, prenom, poste, email, fixe, mobile, message, file) values(:devis, :entreprise, :secteur, :dimension, :siret, :adresse, :cp, :ville, :nom, :prenom, :poste, :email, :fixe, :mobile, :message, :file)";
             // si l'enregistrement existe on le met a jour.
-            $sql .= " on duplicate key update devis=:devis, entreprise=:entreprise, secteur=:secteur, dimension=:dimension, siret=:siret, adresse=:adresse, cp=:cp, ville=:ville, nom=:nom, prenom=:prenom, poste=:poste, email=:email, fixe=:fixe, mobile=:mobile, message=:message";
+            $sql .= " on duplicate key update devis=:devis, entreprise=:entreprise, secteur=:secteur, dimension=:dimension, siret=:siret, adresse=:adresse, cp=:cp, ville=:ville, nom=:nom, prenom=:prenom, poste=:poste, email=:email, fixe=:fixe, mobile=:mobile, message=:message, file=:file";
 
             $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
             if($sth->execute(array(
@@ -139,7 +148,8 @@ if (isset($_GET['action'])){
                 ':email' => $_POST['email'],
                 ':fixe' => $_POST['fixe'],
                 ':mobile' => $_POST['mobile'],
-                ':message' => $_POST['message']
+                ':message' => $_POST['message'],
+                ':file' => $fileToSend
             ))){
                 $lastInsertId = $dbh->lastInsertId();
 
