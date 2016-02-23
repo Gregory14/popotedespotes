@@ -476,6 +476,9 @@ footer .links a {
 
 /*_______PAGE RERSEVER SESSION_____*/
 
+#cours_form .form-group {
+    text-align:center;
+}
 #cours_form .control-label{
     text-align:center;
 }
