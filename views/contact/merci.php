@@ -11,7 +11,8 @@ if (isset($_SESSION['errors'])) {
 }
 
 ?>
-<div class="container overlayContainer">
+<div class="container">
+<section class=" col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 overlayContainer">
     <div class="row">
 <h1>Merci </h1>
 
@@ -20,4 +21,5 @@ if (isset($_SESSION['errors'])) {
 
         <div class="col-lg-4 col-lg-offset-4"><a href="index.php" class="btn">Retour à la page d'accueil</a></div>
     </div>
+</section>
 </div>

@@ -42,6 +42,7 @@ main{
     letter-spacing: 1px;
     line-height: 1.5;
     background: #FDFCFC;
+    padding-bottom:100px;
 }
 li {
     list-style:none;
@@ -54,6 +55,7 @@ li {
     border-radius:0;
     padding: 12px 17px;
     transition:all ease-in 0.2s;
+    white-space: normal;
 }
 .btn:hover {
     color:white;
@@ -68,6 +70,11 @@ section h3 {
     text-transform: uppercase;
     font-family: 'AvenirMedium',sans-serif;
     letter-spacing: 4px;
+    text-align: center;
+}
+
+.doubleList {
+    text-align:left;
 }
 
 .square {
@@ -208,7 +215,7 @@ header.fixedHeader.whiteHeader .menu-icon::before {
 }
 header svg {
     fill:white;
-    width:100px;
+    width:80px;
 }
 header nav {
     float:right;
@@ -269,12 +276,14 @@ figure {
     position: relative;
     height: 785px;
     overflow: hidden;
+    background-size: cover;
+    background-position: center -20px;
 }
 figure img {
-    width: auto;
     min-width: 100%;
     height: auto;
-    min-height: 100%;
+    min-height:100%;
+    width:auto;
 }
 figure figcaption {
     position: absolute;
@@ -287,7 +296,7 @@ figure figcaption {
     text-transform: uppercase;
 }
 
-figure figcaption h1 {
+h1 {
     font-family: 'AvenirDemi', sans-serif;
     font-size: 4em;
     letter-spacing: 5px;
@@ -420,13 +429,26 @@ footer .links a {
 /*_______PAGE CONTACT_______*/
 
 .overlayContainer {
-    margin-top: -50%;
+    margin-top: -380px;
     background-color: white;
     position: relative;
     text-align: center;
-    padding:60px 20px;
+    padding: 0px 20px 40px 20px;
+    min-height: 440px;
 }
-
+.overlayContainer h1 {
+    -webkit-transform: translateY(-50px);
+    -moz-transform: translateY(-50px);
+    -ms-transform: translateY(-50px);
+    -o-transform: translateY(-50px);
+    transform: translateY(-210px);
+    margin-bottom: -150px;
+    color: white;
+    text-transform: uppercase;
+}
+#contact_form {
+    margin-top:50px;
+}
 #contact_form .has-feedback{
     text-align: left;
     margin-bottom: 20px;
@@ -440,4 +462,42 @@ footer .links a {
 
 #cours_form .control-label{
     text-align:center;
+}
+
+#cours_form img {
+    max-width: 100%;
+}
+form label span {
+    display: block;
+    font-size: 0.8em;
+}
+.particpantsList {
+    width:100px;
+}
+
+.participants {
+    fill: #F37168;
+}
+
+.participants.disabled {
+    fill:rgb(248,245,192);
+}
+
+form#cours img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+#ingredients h4.panIcon::before {
+    content:url('../img/marmitte.png');
+}
+
+#ingredients h4.toqueIcon::before {
+    content:url(../img/ToqueChef.png);
+}
+
+form#cours .sectionAssos img {
+    max-height: 80px;
+    margin-bottom: 20px;
 }
