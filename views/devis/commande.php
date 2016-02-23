@@ -70,11 +70,11 @@ Nous sommes impatient de partager un moment de cuisine solidaire avec vous. En a
         </tr>
         <tr>
             <td><?php echo ($postdata['offre']);?></td>
-            <td><?php echo ($postdata['menu']);?></td>
-            <td><?php echo ($postdata['type_cuisine']);?></td>
+            <td><?php if (isset($postdata['menu']) && !empty($postdata['menu'])) {echo ($postdata['menu']);} else {echo "En attente des réponses collaborateur";}?></td>
+            <td><?php if (isset($postdata['type_cuisine']) && !empty($postdata['type_cuisine'])) {echo ($postdata['type_cuisine']);} else {echo "En attente des réponses collaborateur";}?></td>
             <td><?php echo ($postdata['lieu']);?></td>
             <td><?php echo ($postdata['date']);?></td>
-            <td><?php echo ($postdata['association']);?></td>
+            <td><?php if (isset($postdata['association']) && !empty($postdata['association'])) {echo $postdata['association'];} else {echo "En attente des réponses collaborateur";}?></td>
         </tr>
     </table>
     <div>
