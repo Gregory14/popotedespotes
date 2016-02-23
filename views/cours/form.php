@@ -81,14 +81,14 @@ if (DEBUG) {
 
         <div class="row">
             <label class="col-xs-6">
-                <input type="radio" id="lieu1" name="lieu" value="lieu1"
-                    <?php if (isset($postdata['lieu']) && $postdata['lieu']=='lieu1') {echo 'checked';} ?>
+                <input type="radio" id="Nos locaux" name="lieu" value="Nos locaux"
+                    <?php if (isset($postdata['lieu']) && $postdata['lieu']=='Nos locaux') {echo 'checked';} ?>
                 > Nous avons des locaux
             </label>
 
             <label class="col-xs-6">
-                <input type="radio" id="lieu2" name="lieu" value="lieu2"
-                    <?php if (isset($postdata['lieu']) && $postdata['lieu']=='lieu2') {echo 'checked';} ?>
+                <input type="radio" id="Vos locaux" name="lieu" value="Vos locaux"
+                    <?php if (isset($postdata['lieu']) && $postdata['lieu']=='Vos locaux') {echo 'checked';} ?>
                 > Nous avons besoins d'un lieu
             </label>
         </div>

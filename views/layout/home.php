@@ -61,7 +61,7 @@ if (DEBUG) {
             </div>
         </div>
         <div class="row ctaContainer">
-            <a href="cours/form.php" class="btn">Préparez votre popote</a>
+            <a href="reservation.php" class="btn">Préparez votre popote</a>
         </div>
     </div>
 </section>
