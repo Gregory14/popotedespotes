@@ -94,7 +94,10 @@ $(function () {
 
     //Affichage / masquage du menu
     $('.menu-icon').click(function () {
-        $('#main-menu').toggleClass('visible');
+        $('#main-menu').fadeIn();
+    });
+    $('#main-menu').click(function () {
+        $('#main-menu').fadeOut();
     });
 
     //Scroll progressif sur les ancres
