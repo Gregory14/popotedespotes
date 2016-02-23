@@ -2,6 +2,7 @@
 </main>
 <footer>
     <div class="container">
+        <div class="row">
         <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 links">
             <h4>La popote des potes</h4>
             <ul>
@@ -108,6 +109,12 @@
                 <li><a href="#">CGU</a></li>
                 <li><a href="#">Mentions légales</a></li>
             </ul>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3">
+            <?php include 'views/partials/socialLinks.php';?>
+            </div>
         </div>
     </div>
 </footer>

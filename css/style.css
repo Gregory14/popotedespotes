@@ -526,3 +526,21 @@ form#cours .sectionAssos img {
 #firmInfos ul {
     text-align:left;
 }
+
+.socialLinks {
+    padding:0;
+}
+.socialLinks li {
+    display:inline-block;
+}
+
+footer .socialLinks {
+    position: fixed;
+    bottom: 0;
+    Z-index: 30;
+    margin: 0;
+}
+
+footer .socialLinks svg{
+    fill:black;
+}
