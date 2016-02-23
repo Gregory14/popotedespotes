@@ -73,12 +73,11 @@ if (DEBUG) {
 
     <?php
     if (isset($postdata) && isset($postdata['id']) && !empty($postdata['id']) ){
-        print_r($postdata);
         ?>
-        <input type="text" name="id" value="<?php echo $postdata['id'] ?>">
+        <input type="hidden" name="id" value="<?php echo $postdata['id'] ?>">
         <?php
     }else {?>
-        <input type="text" name="id" value="<?php echo $_GET['id'] ?>">
+        <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
     <?php
     }
     ?>
