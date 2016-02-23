@@ -1,6 +1,7 @@
-<hr>
-<a href="reservation.php?action=edit">Créer une réservation</a>
-<hr>
+<div class="container">
+    <section class="overlayContainer">
+    <h1>Mes popotes en cours</h1>
+<a href="reservation.php?action=edit" class="btn">Créer une réservation</a>
 <ul>
     <?php
     $messages = [];
@@ -18,3 +19,5 @@
     }
     ?>
 </ul>
+</section>
+</div>

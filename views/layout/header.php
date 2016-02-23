@@ -15,9 +15,13 @@
     <script src="js/scripts.js"></script>
 </head>
 
-<body class="simpleHeader">
+<body class="<?php
+$find = array(".php","/");
+$replace = array('');
+echo(str_replace($find,$replace,$view));?>">
 <header>
-    <svg version="1.1" id="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+    <a href="/">
+        <svg version="1.1" id="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
          y="0px"
          viewBox="0 0 471.2 528.7" style="enable-background:new 0 0 471.2 528.7;" xml:space="preserve">
         <g class="hideable">
@@ -108,6 +112,7 @@
         <polygon class="hideable" points="129,376.4 30.9,404.3 30.9,395.7 129,367.7 "/>
         <polygon class="hideable" points="129,487.3 30.9,515.3 30.9,506.6 129,478.6 "/>
 </svg>
+    </a>
 
 
     <nav id="main-menu">
@@ -131,11 +136,10 @@ $_SESSION['usermessage'] = '';
 <hr-->
 
 <figure>
-    <img src="img/heroBackground.jpg">
     <figcaption>
         <h1>Cuisinez éthique</h1>
         <h2>Fédérez vos équipes autour d’une cause</h2>
-        <a href="reservation.php" class="btn">Créez votre team building autrement</a>
+        <a href="#recette" class="btn">Créez votre team building autrement</a>
     </figcaption>
 
 </figure>

@@ -20,15 +20,16 @@ if (DEBUG) {
     echo("</pre>");
 
 }
-?>
-<div class="container overlayContainer">
+?><div class="container">
+<section class="col-lg-10 col-lg-offset-1 overlayContainer">
     <div class="row">
+
 <h1>Une question ?</h1>
 
-<p class="col-lg-8 col-lg-offset-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor erat eu lorem consequat lobortis. Integer tortor elit, sodales sed rutrum finibus, pellentesque tincidunt ex. In in enim tellus. Aliquam erat volutpat. Sed volutpat viverra urna, nec aliquam orci venenatis sed. Nam gravida blandit nulla, a accumsan quam luctus lacinia. Donec blandit libero sit amet augue ultricies rhoncus.</p>
-    </div>
+        <h3>Contactez-nous</h3>
 
-<h2>Contactez-nous</h2>
+<p class="col-lg-8 col-lg-offset-2">Vous souhaitez obtenir des informations détaillées concernant le fonctionnement de La Popote des Potes ? Vous désirez organiser une popote entièrement sur mesure ? Vous aimeriez participer à l'aventure ? Remplissez le formulaire ci-dessous, nous prendrons le temps de quitter nos fourneaux pour vous répondre aussi rapidement que possible.</p>
+    </div>
 
 <form method="post" action="contact.php?action=save" enctype="multipart/form-data" id="contact_form"
       class="form-horizontal">
@@ -87,7 +88,9 @@ if (DEBUG) {
     <div class="col-lg-2 col-lg-offset-8"><input type="submit" id="ajax_form_check" class="btn" value="Envoyer"></div>
 </form>
 
+</section>
 </div>
+
 <script>
     var phpErrors = <?php echo (count($errors)?json_encode($errors, JSON_FORCE_OBJECT):'{}') ?>;
 </script>
