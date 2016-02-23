@@ -20,6 +20,18 @@ $(function () {
         case 'courscours' :
             $imgUrl = "img/heroBackground4.jpg";
             break;
+        case 'courslist' :
+            $imgUrl = "img/heroBackground4.jpg";
+            break;
+        case 'deviscommande' :
+            $imgUrl = "img/heroBackground5.jpg";
+            break;
+        case 'devisform' :
+            $imgUrl = "img/heroBackground5.jpg";
+            break;
+        case 'devislist' :
+            $imgUrl = "img/heroBackground5.jpg";
+            break;
         default :
             $imgUrl = "img/heroBackground.jpg";
     }

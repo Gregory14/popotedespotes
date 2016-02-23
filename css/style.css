@@ -442,7 +442,6 @@ footer .links a {
     -ms-transform: translateY(-50px);
     -o-transform: translateY(-50px);
     transform: translateY(-210px);
-    margin-bottom: -150px;
     color: white;
     text-transform: uppercase;
 }
