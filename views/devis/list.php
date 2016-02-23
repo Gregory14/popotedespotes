@@ -3,7 +3,6 @@
         <div class="row">
 
 <a href="devis.php?action=edit" class="btn">Créer un devis</a>
-<hr>
 <ul>
 <?php
     $messages = [];

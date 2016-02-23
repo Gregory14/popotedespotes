@@ -26,11 +26,13 @@ if (DEBUG) {
     <div class="overlayContainer col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
 
 <h1>Votre cours de cuisine</h1>
-<section>
+        <div class="row">
+<section class="col-lg-10 col-lg-offset-1">
     <h3>La recette</h3>
     <p>La popote des potes vous propose de construire les liens qui vous unissent à vos collaborateurs de façon ludique, responsable et solidaire. Pour travailler la cohésion d'équipe autrement, nous avons fait le choix de vous proposer un
         moment inoubliable d’échange et de partage au service de la solidarité. </p>
 </section>
+        </div>
 
         <section id="ingredients">
 
@@ -88,17 +90,17 @@ if (DEBUG) {
         <div class="">
             <label class="col-lg-4 col-md-4 col-sm-4">
                 <input type="checkbox" id="menu1" name="menu[]" value="entrée"
-                <?php if (isset($postdata['menu']) && $postdata['menu'][0]=='entrée') {echo 'checked';} ?>> Entrée
+                <?php if (isset($postdata['menu']) && $postdata['menu'][0]=='entrée') {echo 'checked';} ?>> <span>Entrée</span>
             </label>
 
             <label class="col-lg-4 col-md-4 col-sm-4">
                 <input type="checkbox" id="menu2" name="menu[]" value="plat"
-                <?php if (isset($postdata['menu']) && ($postdata['menu'][0]=='plat' || $postdata['menu'][1]=='plat')) {echo 'checked';} ?>> Plats
+                <?php if (isset($postdata['menu']) && ($postdata['menu'][0]=='plat' || $postdata['menu'][1]=='plat')) {echo 'checked';} ?>> <span>Plats</span>
             </label>
 
             <label class="col-lg-4 col-md-4 col-sm-4">
                 <input type="checkbox" id="menu3" name="menu[]" value="dessert"
-                <?php if (isset($postdata['menu']) && (($postdata['menu'][0]) =='dessert' || $postdata['menu'][1] =='dessert' || $postdata['menu'][2] =='dessert')) {echo 'checked';} ?>> Dessert
+                <?php if (isset($postdata['menu']) && (($postdata['menu'][0]) =='dessert' || $postdata['menu'][1] =='dessert' || $postdata['menu'][2] =='dessert')) {echo 'checked';} ?>> <span>Desserts</span>
             </label>
         </div>
     </section>
@@ -165,24 +167,24 @@ if (DEBUG) {
             <div class="doubleList col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-xs-12">
             <label class="col-lg-12 col-xs-12">
                 <input type="checkbox" id="contraintes1" name="contraintes[]" value="Hallal"
-                <?php if (isset($postdata['contraintes']) && ($postdata['contraintes'][0]=='Hallal')) {echo 'checked';} ?>> Hallal
+                <?php if (isset($postdata['contraintes']) && ($postdata['contraintes'][0]=='Hallal')) {echo 'checked';} ?>> <span>Hallal</span>
             </label>
 
             <label class="col-lg-12 col-xs-12">
                 <input type="checkbox" id="contraintes2" name="contraintes[]" value="Vegan"
-                <?php if (isset($postdata['contraintes']) && ($postdata['contraintes'][0]=='Vegan'||$postdata['contraintes'][1]=='Vegan')) {echo 'checked';} ?>> Vegan
+                <?php if (isset($postdata['contraintes']) && ($postdata['contraintes'][0]=='Vegan'||$postdata['contraintes'][1]=='Vegan')) {echo 'checked';} ?>> <span>Vegan</span>
             </label>
             </div>
 
             <div class="doubleList col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-xs-12">
             <label class="col-lg-12 col-xs-12">
                 <input type="checkbox" id="contraintes3" name="contraintes[]" value="Allergie"
-                <?php if (isset($postdata['contraintes']) && ($postdata['contraintes'][0]=='Allergie'||$postdata['contraintes'][1]=='Allergie'||$postdata['contraintes'][2]=='Allergie')) {echo 'checked';} ?>> Allergie
+                <?php if (isset($postdata['contraintes']) && ($postdata['contraintes'][0]=='Allergie'||$postdata['contraintes'][1]=='Allergie'||$postdata['contraintes'][2]=='Allergie')) {echo 'checked';} ?>> <span>Allergie</span>
             </label>
 
             <label class="col-lg-12 col-xs-12">
                 <input type="checkbox" id="contraintes4" name="contraintes[]" value="Casher"
-                <?php if (isset($postdata['contraintes']) && ($postdata['contraintes'][0]=='Casher'||$postdata['contraintes'][1]=='Casher'||$postdata['contraintes'][2]=='Casher'||$postdata['contraintes'][3]=='Casher')) {echo 'checked';} ?>> Casher
+                <?php if (isset($postdata['contraintes']) && ($postdata['contraintes'][0]=='Casher'||$postdata['contraintes'][1]=='Casher'||$postdata['contraintes'][2]=='Casher'||$postdata['contraintes'][3]=='Casher')) {echo 'checked';} ?>> <span>Casher</span>
             </label>
 
                 </div>
