@@ -506,7 +506,7 @@ form#cours img {
     margin: 0 auto;
 }
 
-#cours input[type=checkbox] {
+#cours input[type=checkbox], input[type=radio] {
     display:block;
 margin:10px auto;
 }
@@ -521,4 +521,8 @@ margin:10px auto;
 form#cours .sectionAssos img {
     max-height: 80px;
     margin-bottom: 20px;
+}
+
+#firmInfos ul {
+    text-align:left;
 }

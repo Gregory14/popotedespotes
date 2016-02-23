@@ -26,13 +26,14 @@ if (DEBUG) {
     <section class="col-lg-10 col-lg-offset-1 overlayContainer">
         <div class="row">
 <h1>Merci pour votre commande</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non lectus imperdiet, facilisis magna porttitor, vulputate magna. Nam sodales, orci et finibus dapibus, purus nisi sodales nunc, nec porttitor purus nibh at dui. Nunc suscipit, eros quis egestas vestibulum, massa dolor euismod neque, at tincidunt erat nunc et nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
+<p class="col-lg-8 col-lg-offset-2">Votre demande a bien été enregistré, et l'équipe de La Popote des Potes est ravie de vous compter parmi ceux qui croient en notre action.
+Nous sommes impatient de partager un moment de cuisine solidaire avec vous. En attendant, vous trouverez ci-dessous un récapitulatif de votre commande.</p>
+</div>
 <div>
     <a href="download.php" class="btn">Télécharger le devis</a>
 </div>
 
-<div>
+<section id="firmInfos">
     <h3>Information de votre compte</h3>
     <div>
         <h4>Information de l'entreprise</h4>
@@ -45,7 +46,7 @@ if (DEBUG) {
         </ul>
     </div>
     <div>
-        <h3>Contact</h3>
+        <h4>Contact</h4>
         <ul>
             <li>Nom : <?php echo ($postdata['entreprise']);?></li>
             <li>Prénom : <?php echo ($postdata['prenom']);?></li>
@@ -54,11 +55,11 @@ if (DEBUG) {
             <li>Portable : <?php echo ($postdata['mobile']);?></li>
         </ul>
     </div>
-</div>
+</section>
 
 <div>
-    <h2>Recapitulatif de votre commande N° <?php echo $postdata['devis'];?></h2>
-    <table>
+    <h3>Recapitulatif de votre commande N° <?php echo $postdata['devis'];?></h3>
+    <table class="table table-responsives">
         <tr>
             <td>Participants</td>
             <td>Types de plats</td>
@@ -107,12 +108,9 @@ if (DEBUG) {
 </div>
 
 <div>
-    <h2>Suivez-nous</h2>
-    <ul>
-        <li>Linkedin</li>
-        <li>facebook</li>
-        <li>twitter</li>
-    </ul>
+    <h3>Suivez-nous</h3>
+    <?php include 'views/partials/socialLinks.php';?>
+
 </div>
         </div>
         </section>

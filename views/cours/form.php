@@ -82,13 +82,13 @@ if (DEBUG) {
             <label class="col-xs-6">
                 <input type="radio" id="Nos locaux" name="lieu" value="Nos locaux"
                     <?php if (isset($postdata['lieu']) && $postdata['lieu']=='Nos locaux') {echo 'checked';} ?>
-                > Nous avons des locaux
+                > <span>Nous avons des locaux</span>
             </label>
 
             <label class="col-xs-6">
                 <input type="radio" id="Vos locaux" name="lieu" value="Vos locaux"
                     <?php if (isset($postdata['lieu']) && $postdata['lieu']=='Vos locaux') {echo 'checked';} ?>
-                > Nous avons besoins d'un lieu
+                > <span>Nous avons besoins d'un lieu</span>
             </label>
         </div>
     </div>
