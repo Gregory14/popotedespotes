@@ -28,15 +28,16 @@ if (DEBUG) {
 
 <h1>Demande de devis</h1>
 
+            </div>
 
 <form method="post" action="devis.php?action=save" enctype="multipart/form-data" id="devis_form"
-      class="form-horizontal col-lg-8 col-lg-offset-2 ">
+      class="form-horizontal">
     <h3>Votre entreprise</h3>
 
     <?php
     if (isset($postdata) && isset($postdata['devis']) && !empty($postdata['devis']) ){
         ?>
-        <div class="form-group has-feedback col-lg-12">
+        <div class="has-feedback col-lg-12">
             <label for="devis" class="control-label">Devis n°</label>
 
             <div class="">
@@ -47,8 +48,8 @@ if (DEBUG) {
         <?php
     }
     ?>
-
-    <div class="form-group has-feedback col-lg-5">
+<div class="row">
+    <div class="has-feedback col-lg-4 col-lg-offset-2">
         <label for="entreprise" class="control-label">Entreprise</label>
 
         <div class="">
@@ -58,7 +59,7 @@ if (DEBUG) {
     </div>
 
 
-    <div class="form-group has-feedback col-lg-5 col-lg-offset-2">
+    <div class="has-feedback col-lg-4">
         <label for="secteur" class="control-label">Secteur d'activité</label>
 
         <div class="">
@@ -71,9 +72,10 @@ if (DEBUG) {
             </select>
         </div>
     </div>
+    </div>
 
-
-    <div class="form-group has-feedback col-lg-6">
+<div class="row">
+    <div class="has-feedback col-lg-4 col-lg-offset-2">
         <label for="dimension" class="control-label">Dimension de l'entreprise</label>
 
         <div class="">
@@ -87,7 +89,7 @@ if (DEBUG) {
         </div>
 
 
-    <div class="form-group has-feedback col-lg-6">
+    <div class="has-feedback col-lg-4">
         <label for="siret" class="control-label">Siret</label>
 
         <div class="">
@@ -95,8 +97,9 @@ if (DEBUG) {
                    value="<?php echo !empty($postdata['siret']) ? ($postdata['siret']) : '' ?>">
         </div>
     </div>
-
-    <div class="form-group has-feedback col-lg-6">
+</div>
+    <div class="row">
+    <div class="has-feedback col-lg-8 col-lg-offset-2">
         <label for="adresse" class="control-label">Adresse</label>
 
         <div class="">
@@ -104,8 +107,10 @@ if (DEBUG) {
                    value="<?php echo !empty($postdata['adresse']) ? ($postdata['adresse']) : '' ?>">
         </div>
     </div>
+        </div>
+        <div class="row">
 
-    <div class="form-group has-feedback col-lg-6">
+            <div class="has-feedback col-lg-4 col-lg-offset-2">
         <label for="code postal" class="control-label">Code postale</label>
 
         <div class="">
@@ -114,7 +119,7 @@ if (DEBUG) {
         </div>
     </div>
 
-    <div class="form-group has-feedback col-lg-6">
+            <div class="has-feedback col-lg-4">
         <label for="ville" class="control-label">Ville</label>
 
         <div class="">
@@ -122,9 +127,11 @@ if (DEBUG) {
                    value="<?php echo !empty($postdata['ville']) ? ($postdata['ville']) : '' ?>">
         </div>
     </div>
+            </div>
 
     <h3>Vos informations de contact</h3>
-    <div class="form-group has-feedback col-lg-6">
+    <div class="row">
+        <div class="has-feedback col-lg-4 col-lg-offset-2">
         <label for="name" class="control-label">Nom</label>
 
         <div class="">
@@ -133,77 +140,89 @@ if (DEBUG) {
         </div>
     </div>
 
-    <div class="form-group has-feedback">
-        <label for="prenom" class="col-xs-2 control-label">Prénom</label>
+    <div class="has-feedback col-lg-4">
+        <label for="prenom" class="control-label">Prénom</label>
 
-        <div class="col-xs-6">
+        <div class="">
             <input type="text" id="prenom" name="prenom" class="form-control" placeholder="i.e : Paul"
                    value="<?php echo !empty($postdata['prenom']) ? ($postdata['prenom']) : '' ?>">
         </div>
     </div>
+        </div>
 
-    <div class="form-group has-feedback">
+    <div class="row">
+
+        <div class="has-feedback col-lg-4 col-lg-offset-2">
         <label for="poste" class="col-xs-2 control-label">Poste</label>
 
-        <div class="col-xs-6">
+        <div class="">
             <input type="text" id="poste" name="poste" class="form-control" placeholder="DRH"
                    value="<?php echo !empty($postdata['poste']) ? ($postdata['poste']) : '' ?>">
         </div>
     </div>
 
-    <div class="form-group has-feedback">
+        <div class="has-feedback col-lg-4">
         <label for="email" class="col-xs-2 control-label">Email</label>
 
-        <div class="col-xs-6">
+        <div class="">
             <input type="text" autocomplete="0" id="email" name="email" class="form-control"
                    placeholder="i.e : exemple@lapopotedespotes.net"
                    value="<?= !empty($postdata['email']) ? ($postdata['email']) : '' ?>">
         </div>
     </div>
+        </div>
 
-    <div class="form-group has-feedback">
-        <label for="fixe" class="col-xs-2 control-label">Téléphone</label>
+    <div class="row">
 
-        <div class="col-xs-6">
+        <div class="has-feedback col-lg-4 col-lg-offset-2">
+        <label for="fixe" class="control-label">Téléphone</label>
+
+        <div class="">
             <input type="tel" id="fixe" name="fixe" class="form-control" placeholder="i.e : 01234567890"
                    value="<?php echo !empty($postdata['fixe']) ? ($postdata['fixe']) : '' ?>">
         </div>
     </div>
 
-    <div class="form-group has-feedback">
-        <label for="portable" class="col-xs-2 control-label">Portable</label>
+        <div class="has-feedback col-lg-4">
+        <label for="portable" class="control-label">Portable</label>
 
-        <div class="col-xs-6">
+        <div class="">
             <input type="tel" id="mobile" name="mobile" class="form-control" placeholder="i.e : 04568758"
                    value="<?php echo !empty($postdata['mobile']) ? ($postdata['mobile']) : '' ?>">
         </div>
     </div>
+        </div>
 
-    <div class="form-group has-feedback">
-        <label for="message" class="col-xs-2 control-label">Informations complémentaires</label>
+    <div class="row">
+        <div class="has-feedback col-lg-8 col-lg-offset-2">
+        <label for="message" class="control-label">Informations complémentaires</label>
 
-        <div class="col-xs-6">
+        <div class="">
             <textarea id="message"
                       name="message"
                       class="form-control"
                       placeholder="un petit message ?"><?= !empty($postdata['message']) ? ($postdata['message']) : '' ?></textarea>
         </div>
     </div>
+        </div>
 
-    <div class="form-group has-feedback">
-        <label for="file" class="col-xs-2 control-label">Importez les mail de vos collaborateurs invités</label>
+    <div class="row">
+        <div class="has-feedback col-lg-8 col-lg-offset-2">
+        <label for="file" class="control-label">Importez les mail de vos collaborateurs invités</label>
 
-        <div class="col-xs-6">
+        <div class="">
             <input type="file" id="file" name="file" class="form-control"
                    placeholder="Fichier .CSV">
                 <input type="hidden" name="file_send" id="file_send" value="<?php echo $postdata['file'] ?>">
         </div>
     </div>
 
+        <div class="has-feedback col-lg-8 col-lg-offset-2 btn-container">
     <input type="submit" id="ajax_form_check" class="btn" value="Valider le devis">
-
+            </div>
+        </div>
 </form>
-            </div></section></div>
+    </section></div>
 <script>
     var phpErrors = <?php echo (count($errors)?json_encode($errors, JSON_FORCE_OBJECT):'{}') ?>;
 </script>
