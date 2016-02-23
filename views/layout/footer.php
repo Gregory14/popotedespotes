@@ -7,7 +7,7 @@
             <ul>
                 <li><a href="#">À propos</a></li>
                 <li><a href="contact.php">Contact</a></li>
-                <li><a href="#">Devenez partenaire</a></li>
+                <li><a href="mailto:gregory_14@live.fr?subject=Demande de partenariat&body=Demande de partenariat">Devenez partenaire</a></li>
             </ul>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
