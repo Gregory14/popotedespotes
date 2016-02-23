@@ -22,18 +22,24 @@ if (DEBUG) {
 }
 ?>
 
+<div class="container">
+    <section class="col-lg-10 col-lg-offset-1 overlayContainer">
+        <div class="row">
+
 <h1>Demande de devis</h1>
 
 
 <form method="post" action="devis.php?action=save" enctype="multipart/form-data" id="devis_form"
-      class="form-horizontal">
+      class="form-horizontal col-lg-8 col-lg-offset-2 ">
+    <h3>Votre entreprise</h3>
+
     <?php
     if (isset($postdata) && isset($postdata['devis']) && !empty($postdata['devis']) ){
         ?>
-        <div class="form-group has-feedback">
-            <label for="devis" class="col-xs-2 control-label">Devis n°</label>
+        <div class="form-group has-feedback col-lg-12">
+            <label for="devis" class="control-label">Devis n°</label>
 
-            <div class="col-xs-6">
+            <div class="">
                 <input type="text" id="devis" name="devis" class="form-control" readonly placeholder=""
                        value="<?php echo !empty($postdata['devis']) ? ($postdata['devis']) : '' ?>">
             </div>
@@ -42,19 +48,20 @@ if (DEBUG) {
     }
     ?>
 
-    <div class="form-group has-feedback">
-        <label for="entreprise" class="col-xs-2 control-label">Entreprise</label>
+    <div class="form-group has-feedback col-lg-5">
+        <label for="entreprise" class="control-label">Entreprise</label>
 
-        <div class="col-xs-6">
+        <div class="">
             <input type="text" id="entreprise" name="entreprise" class="form-control" placeholder="i.e : La popote des potes"
                    value="<?php echo !empty($postdata['entreprise']) ? ($postdata['entreprise']) : '' ?>">
         </div>
     </div>
 
-    <div class="form-group has-feedback">
-        <label for="secteur" class="col-xs-2 control-label">Secteur d'activité</label>
 
-        <div class="col-xs-6">
+    <div class="form-group has-feedback col-lg-5 col-lg-offset-2">
+        <label for="secteur" class="control-label">Secteur d'activité</label>
+
+        <div class="">
             <select id="secteur" name="secteur" class="form-control">
                     <option value="Agricole" <?php if (isset($postdata['secteur']) && $postdata['secteur']=='Agricole') {echo 'selected';} ?>>Agricole</option>
                     <option value="Automobile" <?php if (isset($postdata['secteur']) && $postdata['secteur']=='Automobile') {echo 'selected';} ?>>Automobile</option>
@@ -65,10 +72,11 @@ if (DEBUG) {
         </div>
     </div>
 
-    <div class="form-group has-feedback">
-        <label for="dimension" class="col-xs-2 control-label">Dimension de l'entreprise</label>
 
-        <div class="col-xs-6">
+    <div class="form-group has-feedback col-lg-6">
+        <label for="dimension" class="control-label">Dimension de l'entreprise</label>
+
+        <div class="">
             <select id="dimension" name="dimension" class="form-control">
                     <option value="small" <?php if (isset($postdata['dimension']) && $postdata['dimension']=='small') {echo 'selected';} ?>>Moins de 10</option>
                     <option value="little" <?php if (isset($postdata['dimension']) && $postdata['dimension']=='little') {echo 'selected';} ?>>Entre 10 et 20</option>
@@ -78,46 +86,48 @@ if (DEBUG) {
             </div>
         </div>
 
-    <div class="form-group has-feedback">
-        <label for="siret" class="col-xs-2 control-label">Siret</label>
 
-        <div class="col-xs-6">
+    <div class="form-group has-feedback col-lg-6">
+        <label for="siret" class="control-label">Siret</label>
+
+        <div class="">
             <input type="text" id="siret" name="siret" class="form-control" placeholder="12345678903456"
                    value="<?php echo !empty($postdata['siret']) ? ($postdata['siret']) : '' ?>">
         </div>
     </div>
 
-    <div class="form-group has-feedback">
-        <label for="adresse" class="col-xs-2 control-label">Adresse</label>
+    <div class="form-group has-feedback col-lg-6">
+        <label for="adresse" class="control-label">Adresse</label>
 
-        <div class="col-xs-6">
+        <div class="">
             <input type="text" id="adresse" name="adresse" class="form-control" placeholder="7 rue froment"
                    value="<?php echo !empty($postdata['adresse']) ? ($postdata['adresse']) : '' ?>">
         </div>
     </div>
 
-    <div class="form-group has-feedback">
-        <label for="code postal" class="col-xs-2 control-label">Code postale</label>
+    <div class="form-group has-feedback col-lg-6">
+        <label for="code postal" class="control-label">Code postale</label>
 
-        <div class="col-xs-6">
+        <div class="">
             <input type="tel" id="cp" name="cp" class="form-control" placeholder="75001"
                    value="<?php echo !empty($postdata['cp']) ? ($postdata['cp']) : '' ?>">
         </div>
     </div>
 
-    <div class="form-group has-feedback">
-        <label for="ville" class="col-xs-2 control-label">Ville</label>
+    <div class="form-group has-feedback col-lg-6">
+        <label for="ville" class="control-label">Ville</label>
 
-        <div class="col-xs-6">
+        <div class="">
             <input type="text" id="ville" name="ville" class="form-control" placeholder="Paris"
                    value="<?php echo !empty($postdata['ville']) ? ($postdata['ville']) : '' ?>">
         </div>
     </div>
 
-    <div class="form-group has-feedback">
-        <label for="name" class="col-xs-2 control-label">Nom</label>
+    <h3>Vos informations de contact</h3>
+    <div class="form-group has-feedback col-lg-6">
+        <label for="name" class="control-label">Nom</label>
 
-        <div class="col-xs-6">
+        <div class="">
             <input type="text" id="nom" name="nom" class="form-control" placeholder="i.e : Dupont"
                    value="<?php echo !empty($postdata['nom']) ? ($postdata['nom']) : '' ?>">
         </div>
@@ -196,9 +206,10 @@ if (DEBUG) {
         </div>
     </div>
 
-    <input type="submit" id="ajax_form_check" class="btn btn-primary" value="Valider le devis">
+    <input type="submit" id="ajax_form_check" class="btn" value="Valider le devis">
 
 </form>
+            </div></section></div>
 <script>
     var phpErrors = <?php echo (count($errors)?json_encode($errors, JSON_FORCE_OBJECT):'{}') ?>;
 </script>

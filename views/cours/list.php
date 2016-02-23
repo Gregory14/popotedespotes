@@ -1,5 +1,5 @@
 <div class="container">
-    <section class="overlayContainer">
+    <section class="col-lg-10 col-lg-offset-1 overlayContainer">
     <h1>Mes popotes en cours</h1>
 <a href="reservation.php?action=edit" class="btn">Créer une réservation</a>
 <ul>

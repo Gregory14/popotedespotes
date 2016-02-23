@@ -22,17 +22,20 @@ if (DEBUG) {
 }
 ?>
 
+<div class="container">
+    <section class="col-lg-10 col-lg-offset-1 overlayContainer">
+        <div class="row">
 <h1>Merci pour votre commande</h1>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non lectus imperdiet, facilisis magna porttitor, vulputate magna. Nam sodales, orci et finibus dapibus, purus nisi sodales nunc, nec porttitor purus nibh at dui. Nunc suscipit, eros quis egestas vestibulum, massa dolor euismod neque, at tincidunt erat nunc et nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
 <div>
-    <a href="download.php" class="btn btn-primary">Télécharger le devis</a>
+    <a href="download.php" class="btn">Télécharger le devis</a>
 </div>
 
 <div>
-    <h2>Information de votre compte</h2>
+    <h3>Information de votre compte</h3>
     <div>
-        <h3>Information de l'entreprise</h3>
+        <h4>Information de l'entreprise</h4>
         <ul>
             <li>Nom de l'entreprise : <?php echo ($postdata['entreprise']);?></li>
             <li>N° de SIRET : <?php echo ($postdata['siret']);?></li>
@@ -107,3 +110,6 @@ if (DEBUG) {
         <li>twitter</li>
     </ul>
 </div>
+        </div>
+        </section>
+    </div>
