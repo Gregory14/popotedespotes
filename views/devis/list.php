@@ -1,5 +1,8 @@
-<hr>
-<a href="devis.php?action=edit">Créer un devis</a>
+<div class="container">
+    <section class="col-lg-10 col-lg-offset-1 overlayContainer">
+        <div class="row">
+
+<a href="devis.php?action=edit" class="btn">Créer un devis</a>
 <hr>
 <ul>
 <?php
@@ -18,3 +21,5 @@
     }
 ?>
 </ul>
+
+            </div></section></div>

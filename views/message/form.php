@@ -85,7 +85,7 @@ if (DEBUG) {
         </div>
     </div>
 
-    <input type="submit" id="ajax_form_check" class="btn btn-primary" value="click click">
+    <input type="submit" id="ajax_form_check" class="btn" value="click click">
 
 </form>
 <script>

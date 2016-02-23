@@ -108,7 +108,7 @@ if (DEBUG) {
 
     </div>
 
-    <input type="submit" id="ajax_form_check" class="btn btn-primary" value="Recevoir un devis">
+    <input type="submit" id="ajax_form_check" class="btn" value="Recevoir un devis">
 
 </form>
         </section>
