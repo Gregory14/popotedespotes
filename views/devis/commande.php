@@ -93,9 +93,13 @@ if (DEBUG) {
         }
         else{
             $prixHT = $startPrice * 4;
-        } var_dump($max_participant);
+        }
         ?>
         <p>Prix HT : <?php echo ($prixHT);?></p>
+    </div>
+
+    <div>
+        <p><a href="<?php echo 'mon-cours.php?action=edit&id='.$postdata['id'];?>">Partager le lien</a></p>
     </div>
 </div>
 

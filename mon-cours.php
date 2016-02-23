@@ -50,7 +50,7 @@ if (isset($_GET['action'])){
     // demande de verification ajax
     if ($_GET['action'] == "check") {
         if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-            $states = array('errors' => checkFields($_POST, $_FILES));
+            $states = array('errors' => checkFields($_POST));
             header('Content-type: application/json');
             echo(json_encode($states, JSON_FORCE_OBJECT));
         }
@@ -136,7 +136,7 @@ if (isset($_GET['action'])){
                 }
 
                 // la on utilise une redirection au lieu d'un render pour empecher un refresh user
-                //header('Location: devis.php');
+                //header('Location: cours/merci.php');
                 header('Location: devis.php?action=commande&id='.$id_update);
             }else{
                 //Convertir les chaines de caractère en array

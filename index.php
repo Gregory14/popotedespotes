@@ -27,7 +27,7 @@ $_SESSION['postdata'] = [];
 // liste des erreurs
 $_SESSION['errors'] = [];
 
-//render('layout/home.php');
+render('layout/home.php');
 //render('contact/form.php');
 //render('cours/form.php');
 
