@@ -87,8 +87,11 @@ if (isset($_GET['action'])){
             $commande = $sth -> fetch();
             // mise en session du contenu de l'element demandé
             $_SESSION['postdata'] = $commande;
+
+            render('devis/commande.php');
+        }elseif(isset($_GET['id'])){
+            render('cours/merci.php');
         }
-        render('cours/merci.php');
 
     // demande d'edition
     }else if ($_GET['action'] == "edit"){
