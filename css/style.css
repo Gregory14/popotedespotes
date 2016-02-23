@@ -360,17 +360,17 @@ figure figcaption .btn {
 }
 
 #ingredients .row.ctaContainer {
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    left: 0;
-    margin-top: -46px;
-    z-index: 11;
-}
-#ingredients .row.ctaContainer.ctaFixed {
+    display:none;
     position: fixed;
     bottom: 46px;
     margin: 0;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    z-index: 11;
+}
+#ingredients .row.ctaContainer.ctaFixed {
+
 }
 
 #ingredients .row.ctaContainer.ctaFixed.bottomFixed {
@@ -542,8 +542,16 @@ footer .socialLinks {
     bottom: 0;
     Z-index: 30;
     margin: 0;
+    text-align: center;
+    width: 100%;
+    left: 0;
 }
 
 footer .socialLinks svg{
+    fill:#555;
+    transition: all ease-in 0.2s;
+}
+
+footer .socialLinks svg:hover{
     fill:black;
 }

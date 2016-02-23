@@ -1,12 +1,10 @@
 $(function () {
+
     $(window).trigger('scroll');
 
-    //insère dans une variable la distance du haut de la page
-
+    //Changement de l'image hero
     var $bodyClass = $('body').attr('class');
-
     var $imgUrl = "img/heroBackground.jpg";
-
     switch ($bodyClass){
         case 'contactform' :
             $imgUrl = "img/heroBackground2.jpg";
@@ -37,22 +35,19 @@ $(function () {
     }
     $('figure').css('background-image','url('+ $imgUrl +')');
 
-
-
-
-
     //Affichage du figcaption sur la home seulement.
     $('figcaption').hide();
     $('.layouthome figcaption').show();
 
     $(document).scroll(function () {
-        //Parallaxe sur l'image du haut
 
         var $scroll = $(window).scrollTop();
+
+        // /Parallaxe sur l'image du haut
         $('figure').css('background-position', "center "+ ( -20 + ($scroll * 0.3))+"px");
 
+        //Fonctionnement du header : absolute, puis fixe, puis fond blanc
         if($bodyClass == 'layouthome') {
-            //Fonctionnement du header : absolute, puis fixe, puis fond blanc
             if ($(this).scrollTop() > 40) {
                 $('header').addClass('fixedHeader');
                 if ($(this).scrollTop() > 785) {
@@ -62,21 +57,29 @@ $(function () {
                 }
             } else {
                 $('header').removeClass('fixedHeader');
-            }
+        };
 
-            //Fonctionnement du CTA : absolute, puis fixe, puis absolute
-            var $barTop = $('.ctaContainer').offset().top;
+        //Fonctionnement du CTA : absolute, puis fixe, puis absolute
+            var $barTop = $('#ingredients').offset().top;
             var $footerTop = $('footer').offset().top;
-            if (($scroll) > ($barTop - $(window).height())) {
+
+            if (($scroll) >= ($barTop - $('#ingredients').height())) {
+
                 $('.ctaContainer').addClass('ctaFixed');
+                $('.ctaContainer').fadeIn('fast');
+
                 if (($scroll) > ($footerTop - $(window).height())) {
+
                     $('.ctaContainer').addClass('bottomFixed');
                     $('.ctaContainer').css('top',+ $footerTop-80);
+
                 } else {
+
                     $('.ctaContainer').removeClass('bottomFixed');
                     $('.ctaContainer').css('top','');
                 }
-            } else{
+            }  else {
+                $('.ctaContainer').fadeOut('fast');
             };
 
         } else {
