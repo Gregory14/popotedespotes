@@ -33,7 +33,6 @@ if (DEBUG) {
       class="form-horizontal col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
     <?php
     if (isset($postdata) && isset($postdata['id']) && !empty($postdata['id']) ){
-        print_r($postdata);
     ?>
     <input type="text" name="id" value="<?php echo $postdata['id'] ?>">
     <?php
