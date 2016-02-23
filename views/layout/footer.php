@@ -5,9 +5,9 @@
         <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 links">
             <h4>La popote des potes</h4>
             <ul>
-                <li><a href="">À propos</a></li>
-                <li><a href="">Contact</a></li>
-                <li><a href="">Devenez partenaire</a></li>
+                <li><a href="#">À propos</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <li><a href="#">Devenez partenaire</a></li>
             </ul>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
@@ -104,9 +104,9 @@
         <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 links">
             <h4>Informations</h4>
             <ul>
-                <li><a href="">CGV</a></li>
-                <li><a href="">CGU</a></li>
-                <li><a href="">Mentions légales</a></li>
+                <li><a href="#">CGV</a></li>
+                <li><a href="#">CGU</a></li>
+                <li><a href="#">Mentions légales</a></li>
             </ul>
         </div>
     </div>
