@@ -139,7 +139,7 @@ echo(str_replace($find,$replace,$view));?>">
         <ul>
             <li><a href="reservation.php">Préparez votre popote</a></li>
             <li><a href="mailto:gregory_14@live.fr?subject=Demande de partenariat&body=Demande de partenariat">Devenez partenaire</a></li>
-            <li><a href="/contact/form.php">Contactez-nous</a></li>
+            <li><a href="/contact.php">Contactez-nous</a></li>
         </ul>
     </nav>
 
